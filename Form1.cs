@@ -44,5 +44,14 @@ namespace Cooperativa_Julian_vega_felix
 
             
         }
+
+        private void btnprueba_Click(object sender, EventArgs e)
+        {
+            entrega entrega = new entrega();
+
+            entrega.Show();
+
+            this.Hide();
+        }
     }
 }
