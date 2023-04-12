@@ -32,9 +32,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.txtusuario = new System.Windows.Forms.TextBox();
+            this.txtcontaseña = new System.Windows.Forms.TextBox();
+            this.btnLogin = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -79,39 +79,39 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "Contraseña:";
             // 
-            // textBox1
+            // txtusuario
             // 
-            this.textBox1.Location = new System.Drawing.Point(313, 122);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(174, 27);
-            this.textBox1.TabIndex = 4;
+            this.txtusuario.Location = new System.Drawing.Point(313, 122);
+            this.txtusuario.Name = "txtusuario";
+            this.txtusuario.Size = new System.Drawing.Size(174, 27);
+            this.txtusuario.TabIndex = 4;
             // 
-            // textBox2
+            // txtcontaseña
             // 
-            this.textBox2.Location = new System.Drawing.Point(313, 177);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(174, 27);
-            this.textBox2.TabIndex = 5;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.txtcontaseña.Location = new System.Drawing.Point(313, 177);
+            this.txtcontaseña.Name = "txtcontaseña";
+            this.txtcontaseña.Size = new System.Drawing.Size(174, 27);
+            this.txtcontaseña.TabIndex = 5;
+            this.txtcontaseña.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
-            // button1
+            // btnLogin
             // 
-            this.button1.Location = new System.Drawing.Point(313, 238);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(174, 29);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Inicia Sesion";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnLogin.Location = new System.Drawing.Point(313, 252);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(174, 29);
+            this.btnLogin.TabIndex = 7;
+            this.btnLogin.Text = "Inicia Sesion";
+            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.btnLogin);
+            this.Controls.Add(this.txtcontaseña);
+            this.Controls.Add(this.txtusuario);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -131,8 +131,8 @@
         private Label label2;
         private Label label3;
         private Label label4;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private Button button1;
+        private TextBox txtusuario;
+        private TextBox txtcontaseña;
+        private Button btnLogin;
     }
 }

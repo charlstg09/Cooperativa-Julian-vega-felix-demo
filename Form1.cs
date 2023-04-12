@@ -1,4 +1,6 @@
+using Cooperativa_Julian_vega_felix.capa_presentación;
 using Microsoft.VisualBasic.PowerPacks;
+using System.Data.SqlClient;
 
 namespace Cooperativa_Julian_vega_felix
 {
@@ -7,6 +9,9 @@ namespace Cooperativa_Julian_vega_felix
         public Form1()
         {
             InitializeComponent();
+
+
+           
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -16,19 +21,28 @@ namespace Cooperativa_Julian_vega_felix
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-            textBox2.UseSystemPasswordChar = true;
+            txtcontaseña.UseSystemPasswordChar = true;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            capa_presentación.Principal nuevaVenana = new capa_presentación.Principal();
-            nuevaVenana.Show();
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            capa_presentación.Principal inicio = new capa_presentación.Principal();
-            inicio.Show();
+           
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            Principal principal = new Principal();
+
+            principal.Show();
+
+            this.Hide();
+
+            
         }
     }
 }

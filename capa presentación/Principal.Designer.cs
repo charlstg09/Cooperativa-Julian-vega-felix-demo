@@ -80,6 +80,7 @@
             this.Name = "Principal";
             this.Text = "                                                              COOPERATIVA JULIAN " +
     "VEGA FELIX";
+            this.Load += new System.EventHandler(this.Principal_Load);
             this.ResumeLayout(false);
 
         }

@@ -15,6 +15,15 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
         public Principal()
         {
             InitializeComponent();
+
+        
+
+           
+        }
+
+        private void Principal_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
