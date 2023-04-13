@@ -25,5 +25,28 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
         {
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            historial historial = new historial();
+
+            historial.Show();
+
+            this.Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            entrega entrega = new entrega();
+
+            entrega.Show();
+
+            this.Hide();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+         
+        }
     }
 }

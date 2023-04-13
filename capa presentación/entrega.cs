@@ -51,5 +51,10 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
                 e.Handled = true; // Rechazar el carácter
             }
         }
+
+        private void btnEnviar_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("entrega se realizo con exito.", "exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 } 
