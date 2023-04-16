@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Cooperativa_Julian_vega_felix.capa_presentación;
 using System.Windows.Forms;
 
 namespace Cooperativa_Julian_vega_felix.capa_presentación
@@ -46,7 +47,11 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
         private void button1_Click(object sender, EventArgs e)
         {
-         
+            bntpersonal personal = new bntpersonal();
+
+            personal.Show();
+
+            this.Hide();
         }
     }
 }

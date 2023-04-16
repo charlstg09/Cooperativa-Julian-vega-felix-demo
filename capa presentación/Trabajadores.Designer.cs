@@ -62,9 +62,9 @@
             this.lblNombre.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblNombre.Location = new System.Drawing.Point(12, 38);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(79, 29);
+            this.lblNombre.Size = new System.Drawing.Size(85, 29);
             this.lblNombre.TabIndex = 1;
-            this.lblNombre.Text = "Nombre";
+            this.lblNombre.Text = "Nombre:";
             // 
             // lblApellido
             // 
@@ -72,9 +72,9 @@
             this.lblApellido.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblApellido.Location = new System.Drawing.Point(12, 83);
             this.lblApellido.Name = "lblApellido";
-            this.lblApellido.Size = new System.Drawing.Size(78, 29);
+            this.lblApellido.Size = new System.Drawing.Size(84, 29);
             this.lblApellido.TabIndex = 2;
-            this.lblApellido.Text = "Apellido";
+            this.lblApellido.Text = "Apellido:";
             // 
             // lblTelefono
             // 
@@ -82,9 +82,9 @@
             this.lblTelefono.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblTelefono.Location = new System.Drawing.Point(12, 140);
             this.lblTelefono.Name = "lblTelefono";
-            this.lblTelefono.Size = new System.Drawing.Size(83, 29);
+            this.lblTelefono.Size = new System.Drawing.Size(89, 29);
             this.lblTelefono.TabIndex = 3;
-            this.lblTelefono.Text = "Telefono";
+            this.lblTelefono.Text = "Telefono:";
             // 
             // lblRFC
             // 
@@ -92,19 +92,19 @@
             this.lblRFC.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblRFC.Location = new System.Drawing.Point(44, 200);
             this.lblRFC.Name = "lblRFC";
-            this.lblRFC.Size = new System.Drawing.Size(46, 29);
+            this.lblRFC.Size = new System.Drawing.Size(52, 29);
             this.lblRFC.TabIndex = 4;
-            this.lblRFC.Text = "RFC";
+            this.lblRFC.Text = "RFC:";
             // 
             // lblCurp
             // 
             this.lblCurp.AutoSize = true;
             this.lblCurp.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblCurp.Location = new System.Drawing.Point(41, 258);
+            this.lblCurp.Location = new System.Drawing.Point(31, 258);
             this.lblCurp.Name = "lblCurp";
-            this.lblCurp.Size = new System.Drawing.Size(49, 29);
+            this.lblCurp.Size = new System.Drawing.Size(65, 29);
             this.lblCurp.TabIndex = 5;
-            this.lblCurp.Text = "curp";
+            this.lblCurp.Text = "CURP:";
             // 
             // txtNombre
             // 
@@ -152,6 +152,7 @@
             this.btnAgregar.TabIndex = 11;
             this.btnAgregar.Text = "Agregar ";
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // bntEliminar
             // 

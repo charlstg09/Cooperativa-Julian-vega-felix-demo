@@ -35,7 +35,6 @@
             this.txtusuario = new System.Windows.Forms.TextBox();
             this.txtcontaseña = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.btnprueba = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -105,22 +104,11 @@
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // btnprueba
-            // 
-            this.btnprueba.Location = new System.Drawing.Point(23, 335);
-            this.btnprueba.Name = "btnprueba";
-            this.btnprueba.Size = new System.Drawing.Size(94, 29);
-            this.btnprueba.TabIndex = 8;
-            this.btnprueba.Text = "button1";
-            this.btnprueba.UseVisualStyleBackColor = true;
-            this.btnprueba.Click += new System.EventHandler(this.btnprueba_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnprueba);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtcontaseña);
             this.Controls.Add(this.txtusuario);
@@ -146,6 +134,5 @@
         private TextBox txtusuario;
         private TextBox txtcontaseña;
         private Button btnLogin;
-        private Button btnprueba;
     }
 }

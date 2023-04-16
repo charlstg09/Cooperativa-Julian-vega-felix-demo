@@ -55,6 +55,12 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
         private void btnEnviar_Click(object sender, EventArgs e)
         {
             MessageBox.Show("entrega se realizo con exito.", "exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            Principal principal = new Principal();
+
+            principal.Show();
+
+            this.Hide();
         }
     }
 } 

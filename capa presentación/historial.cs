@@ -19,6 +19,7 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
         private void chkId_CheckedChanged(object sender, EventArgs e)
         {
+            chkId.Checked = false;
             if (chkId.Checked)
             {
                 txtId.Visible = true;
