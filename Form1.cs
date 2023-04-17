@@ -1,4 +1,5 @@
 using Cooperativa_Julian_vega_felix.capa_presentación;
+using Cooperativa_Julian_vega_felix.modelado;
 using Microsoft.VisualBasic.PowerPacks;
 using System.Data.SqlClient;
 
@@ -6,9 +7,11 @@ namespace Cooperativa_Julian_vega_felix
 {
     public partial class Form1 : Form
     {
+        PruebaContext dt;
         public Form1()
         {
             InitializeComponent();
+
 
 
            
@@ -16,6 +19,12 @@ namespace Cooperativa_Julian_vega_felix
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            dt = new PruebaContext();
+
+            // validar información 
+
+
+
 
         }
 
@@ -24,34 +33,38 @@ namespace Cooperativa_Julian_vega_felix
             txtcontaseña.UseSystemPasswordChar = true;
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-           
-        }
+       
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            Principal principal = new Principal();
+            string usuario = txtusuario.Text;
+            string contraseña = txtcontaseña.Text;
 
-            principal.Show();
+            // Realizar consulta a la base de datos
+            var admin = dt.Admins.FirstOrDefault(a => a.Usuario == usuario && a.Contraseña == contraseña);
 
-            this.Hide();
+            // Verificar si se encontró un registro con el usuario y contraseña ingresados
+            if (admin != null)
+            {
+                // Abrir la pantalla o realizar la acción deseada
+                MessageBox.Show("Inicio de sesión exitoso.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // Aquí puedes abrir la pantalla o realizar la acción deseada para el login exitoso
+                Principal principal = new Principal();
+
+                principal.Show();
+
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Nombre de usuario o contraseña incorrectos.", "Error de inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            
 
             
         }
 
-        private void btnprueba_Click(object sender, EventArgs e)
-        {
-            entrega entrega = new entrega();
-
-            entrega.Show();
-
-            this.Hide();
-        }
+        
     }
 }
