@@ -49,12 +49,13 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.dataGridView1.Location = new System.Drawing.Point(307, 0);
+            this.dataGridView1.Location = new System.Drawing.Point(295, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(428, 500);
+            this.dataGridView1.Size = new System.Drawing.Size(655, 500);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // lblNombre
             // 
@@ -126,6 +127,8 @@
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(125, 27);
             this.txtTelefono.TabIndex = 8;
+            this.txtTelefono.TextChanged += new System.EventHandler(this.txtTelefono_TextChanged);
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // txtRfc
             // 
@@ -133,6 +136,8 @@
             this.txtRfc.Name = "txtRfc";
             this.txtRfc.Size = new System.Drawing.Size(125, 27);
             this.txtRfc.TabIndex = 9;
+            this.txtRfc.TextChanged += new System.EventHandler(this.txtRfc_TextChanged);
+            this.txtRfc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRfc_KeyPress);
             // 
             // txtCurp
             // 
@@ -140,6 +145,8 @@
             this.txtCurp.Name = "txtCurp";
             this.txtCurp.Size = new System.Drawing.Size(125, 27);
             this.txtCurp.TabIndex = 10;
+            this.txtCurp.TextChanged += new System.EventHandler(this.txtCurp_TextChanged);
+            this.txtCurp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCurp_KeyPress);
             // 
             // btnAgregar
             // 
@@ -162,10 +169,11 @@
             this.bntEliminar.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.bntEliminar.Location = new System.Drawing.Point(0, 451);
             this.bntEliminar.Name = "bntEliminar";
-            this.bntEliminar.Size = new System.Drawing.Size(307, 49);
+            this.bntEliminar.Size = new System.Drawing.Size(295, 49);
             this.bntEliminar.TabIndex = 12;
             this.bntEliminar.Text = "Eliminar";
             this.bntEliminar.UseVisualStyleBackColor = false;
+            this.bntEliminar.Click += new System.EventHandler(this.bntEliminar_Click);
             // 
             // button2
             // 
@@ -180,7 +188,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(735, 500);
+            this.ClientSize = new System.Drawing.Size(950, 500);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.bntEliminar);
             this.Controls.Add(this.btnAgregar);
@@ -197,6 +205,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "bntpersonal";
             this.Text = "personal";
+            this.Load += new System.EventHandler(this.bntpersonal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
