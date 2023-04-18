@@ -42,6 +42,7 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.bntEliminar = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -184,11 +185,23 @@
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.button1.Location = new System.Drawing.Point(0, 422);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(295, 29);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "Actualizar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // bntpersonal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(950, 500);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.bntEliminar);
             this.Controls.Add(this.btnAgregar);
@@ -228,5 +241,6 @@
         private Button btnAgregar;
         private Button bntEliminar;
         private Button button2;
+        private Button button1;
     }
 }

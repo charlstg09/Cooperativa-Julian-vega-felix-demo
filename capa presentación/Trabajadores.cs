@@ -92,6 +92,17 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
         private void bntpersonal_Load(object sender, EventArgs e)
         {
             refrescar();
+
+            cambio();
+        }
+        public void cambio()
+        {
+            dataGridView1.Columns[0].HeaderText = "ID Trabajo";
+
+            dataGridView1.Columns[1].HeaderText = "Nombre Del Trabajador";
+            dataGridView1.Columns[2].HeaderText = "Apellido Del Trabajador";
+            dataGridView1.Columns[3].HeaderText = "Telefono";
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         public void refrescar()
@@ -107,6 +118,11 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
             eliminar.ShowDialog();
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            refrescar();
         }
     }
 }
