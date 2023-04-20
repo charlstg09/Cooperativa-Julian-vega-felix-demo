@@ -51,6 +51,12 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
         private void txtRfc_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.KeyChar = char.ToUpper(e.KeyChar);
+
+            if (e.KeyChar == 13)
+            {
+                e.Handled = true;
+                txtCurp.Focus();
+            }
         }
 
         private void txtCurp_TextChanged(object sender, EventArgs e)
@@ -61,6 +67,11 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
         private void txtCurp_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.KeyChar = char.ToUpper(e.KeyChar);
+            if (e.KeyChar == 13)
+            {
+                e.Handled = true;
+                btnAgregar.Focus();
+            }
         }
 
         private void txtTelefono_TextChanged(object sender, EventArgs e)
@@ -75,6 +86,11 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
             {
                 // Si no es un número ni una tecla de retroceso, cancelar el evento
                 e.Handled = true;
+            }
+            if (e.KeyChar == 13)
+            {
+                e.Handled = true;
+                txtRfc.Focus();
             }
         }
         private void ConfigurarDataGridView()
@@ -123,6 +139,29 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
         private void button1_Click(object sender, EventArgs e)
         {
             refrescar();
+        }
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                e.Handled = true;
+                txtApellido.Focus();
+            }
+        }
+
+        private void txtApellido_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void txtApellido_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                e.Handled = true;
+                txtTelefono.Focus();
+            }
         }
     }
 }

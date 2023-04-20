@@ -85,6 +85,7 @@
             this.txtusuario.Name = "txtusuario";
             this.txtusuario.Size = new System.Drawing.Size(174, 27);
             this.txtusuario.TabIndex = 4;
+            this.txtusuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtusuario_KeyPress);
             // 
             // txtcontaseña
             // 
@@ -93,6 +94,7 @@
             this.txtcontaseña.Size = new System.Drawing.Size(174, 27);
             this.txtcontaseña.TabIndex = 5;
             this.txtcontaseña.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.txtcontaseña.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtcontaseña_KeyPress);
             // 
             // btnLogin
             // 

@@ -122,5 +122,32 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
 
         }
+
+        private void cmbTipoMarisco_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                e.Handled = true;
+                txtIdUsuario.Focus();
+            }
+        }
+
+        private void txtIdUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                e.Handled = true;
+                txtPesoTotal.Focus();
+            }
+        }
+
+        private void txtPesoTotal_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                e.Handled = true;
+                btnEnviar.Focus();
+            }
+        }
     }
 } 

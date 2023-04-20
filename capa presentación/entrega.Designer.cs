@@ -91,6 +91,7 @@
             this.cmbTipoMarisco.Size = new System.Drawing.Size(151, 28);
             this.cmbTipoMarisco.TabIndex = 6;
             this.cmbTipoMarisco.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.cmbTipoMarisco.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbTipoMarisco_KeyPress);
             // 
             // txtIdUsuario
             // 
@@ -99,6 +100,7 @@
             this.txtIdUsuario.Size = new System.Drawing.Size(151, 30);
             this.txtIdUsuario.TabIndex = 7;
             this.txtIdUsuario.TextChanged += new System.EventHandler(this.txtIdUsuario_TextChanged);
+            this.txtIdUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIdUsuario_KeyPress);
             // 
             // txtPesoTotal
             // 
@@ -107,6 +109,7 @@
             this.txtPesoTotal.Size = new System.Drawing.Size(151, 30);
             this.txtPesoTotal.TabIndex = 9;
             this.txtPesoTotal.TextChanged += new System.EventHandler(this.txtPesoTotal_TextChanged);
+            this.txtPesoTotal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPesoTotal_KeyPress_1);
             // 
             // btnEnviar
             // 

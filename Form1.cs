@@ -65,6 +65,22 @@ namespace Cooperativa_Julian_vega_felix
             
         }
 
-        
+        private void txtusuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                e.Handled = true;
+                txtcontaseña.Focus();
+            }
+        }
+
+        private void txtcontaseña_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                e.Handled = true;
+                btnLogin.Focus();
+            }
+        }
     }
 }
