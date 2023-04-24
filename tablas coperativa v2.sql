@@ -64,3 +64,44 @@ insert into admins values('carlos felix','charls','pelon')
 select * from admins;
 
 
+CREATE TABLE personal(
+idPer INT PRIMARY KEY identity(1,1) NOT NULL,
+idAre int not null,
+nomPer VARCHAR(50) NOT NULL,
+apePer VARCHAR(90) NOT NULL,
+telPer VARCHAR(10) NOT NULL,
+RFC varchar(16),
+CURP varchar(18) NOT NULL,
+foreign key (idAre) references area(idAre)
+);
+
+create table area (
+	idAre int primary key identity(1,1) not null,
+	desAre varchar(10) not null
+);
+
+
+
+create table compañia (
+	idCom int primary key identity(1,1) not null,
+	nomCom varchar(60) not null,
+	encComp varchar(80) not null, 
+	numComp varchar(10) not null, 
+	emaComp varchar(80) not null,
+
+);
+
+
+
+
+create table exportar (
+	idExp int identity(1,1) not null,
+	idCom int not null,
+	idMar int not null,
+	pesTot decimal(10,2) not null,
+	foreign key (idCom) references compañia(idCom),
+	foreign key (idMar) references mariscos(idMar)
+
+);
+
+

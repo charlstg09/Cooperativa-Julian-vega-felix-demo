@@ -163,5 +163,106 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
                 txtTelefono.Focus();
             }
         }
+
+        private void btnprovedor_Click(object sender, EventArgs e)
+        {
+            //ocultar labels
+            lblNombre.Visible = false;
+            lblApellido.Visible = false;
+            lblTelefono.Visible = false;
+            lblRFC.Visible = false;
+            lblCurp.Visible = false;
+
+            //ocultar textboxs
+
+            txtNombre.Visible = false;
+            txtApellido.Visible = false;
+            txtTelefono.Visible = false;
+            txtRfc.Visible = false;
+            txtCurp.Visible = false;
+
+
+            //ocultar botones
+            btnAgregar.Visible = false;
+            button1.Visible = false;
+            bntEliminar.Visible = false;
+
+        }
+
+        private void btnpersonal_Click(object sender, EventArgs e)
+        {
+            //ocultar labels
+            lblNombre.Visible = true;
+            lblApellido.Visible = true;
+            lblTelefono.Visible = true;
+            lblRFC.Visible = true;
+            lblCurp.Visible = true;
+
+            //ocultar textboxs
+
+            txtNombre.Visible = true;
+            txtApellido.Visible = true;
+            txtTelefono.Visible = true;
+            txtRfc.Visible = true;
+            txtCurp.Visible = true;
+
+
+            //ocultar botones
+            btnAgregar.Visible = true;
+            button1.Visible = true;
+            bntEliminar.Visible = true;
+        }
+
+        private void lblCurp_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblRFC_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTelefono_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblApellido_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtApellido_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblNombre_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblpersonal_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAgregarPersonal_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtNombrePersonal.Text) || string.IsNullOrEmpty(txtApellidoPersonal.Text) || string.IsNullOrEmpty(txtTelefonoPersonal.Text) || string.IsNullOrEmpty(txtCurpPersonal.Text) || string.IsNullOrEmpty(txtRfcPersonal.Text))
+            {
+                MessageBox.Show("Porfavor Rellene Los Campos Faltantes", "Campos Incompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                
+            }
+        }
     }
 }

@@ -43,6 +43,21 @@
             this.bntEliminar = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnpersonal = new System.Windows.Forms.Button();
+            this.btnprovedor = new System.Windows.Forms.Button();
+            this.lblTrabajadores = new System.Windows.Forms.Label();
+            this.lblPersonal = new System.Windows.Forms.Label();
+            this.btnAgregarPersonal = new System.Windows.Forms.Button();
+            this.txtCurpPersonal = new System.Windows.Forms.TextBox();
+            this.txtRfcPersonal = new System.Windows.Forms.TextBox();
+            this.txtTelefonoPersonal = new System.Windows.Forms.TextBox();
+            this.txtApellidoPersonal = new System.Windows.Forms.TextBox();
+            this.txtNombrePersonal = new System.Windows.Forms.TextBox();
+            this.lblCurpPersonal = new System.Windows.Forms.Label();
+            this.lblRFCPersonal = new System.Windows.Forms.Label();
+            this.lblTelefonoPersonal = new System.Windows.Forms.Label();
+            this.lblApellidoPersonal = new System.Windows.Forms.Label();
+            this.lblNombrePersonal = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,11 +65,11 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.dataGridView1.Location = new System.Drawing.Point(295, 0);
+            this.dataGridView1.Location = new System.Drawing.Point(661, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(655, 500);
+            this.dataGridView1.Size = new System.Drawing.Size(621, 561);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -62,72 +77,79 @@
             // 
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblNombre.Location = new System.Drawing.Point(12, 38);
+            this.lblNombre.Location = new System.Drawing.Point(11, 80);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(85, 29);
             this.lblNombre.TabIndex = 1;
             this.lblNombre.Text = "Nombre:";
+            this.lblNombre.Click += new System.EventHandler(this.lblNombre_Click);
             // 
             // lblApellido
             // 
             this.lblApellido.AutoSize = true;
             this.lblApellido.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblApellido.Location = new System.Drawing.Point(12, 83);
+            this.lblApellido.Location = new System.Drawing.Point(11, 125);
             this.lblApellido.Name = "lblApellido";
             this.lblApellido.Size = new System.Drawing.Size(84, 29);
             this.lblApellido.TabIndex = 2;
             this.lblApellido.Text = "Apellido:";
+            this.lblApellido.Click += new System.EventHandler(this.lblApellido_Click);
             // 
             // lblTelefono
             // 
             this.lblTelefono.AutoSize = true;
             this.lblTelefono.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblTelefono.Location = new System.Drawing.Point(12, 140);
+            this.lblTelefono.Location = new System.Drawing.Point(11, 182);
             this.lblTelefono.Name = "lblTelefono";
             this.lblTelefono.Size = new System.Drawing.Size(89, 29);
             this.lblTelefono.TabIndex = 3;
             this.lblTelefono.Text = "Telefono:";
+            this.lblTelefono.Click += new System.EventHandler(this.lblTelefono_Click);
             // 
             // lblRFC
             // 
             this.lblRFC.AutoSize = true;
             this.lblRFC.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblRFC.Location = new System.Drawing.Point(44, 200);
+            this.lblRFC.Location = new System.Drawing.Point(43, 242);
             this.lblRFC.Name = "lblRFC";
             this.lblRFC.Size = new System.Drawing.Size(52, 29);
             this.lblRFC.TabIndex = 4;
             this.lblRFC.Text = "RFC:";
+            this.lblRFC.Click += new System.EventHandler(this.lblRFC_Click);
             // 
             // lblCurp
             // 
             this.lblCurp.AutoSize = true;
             this.lblCurp.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblCurp.Location = new System.Drawing.Point(31, 258);
+            this.lblCurp.Location = new System.Drawing.Point(30, 300);
             this.lblCurp.Name = "lblCurp";
             this.lblCurp.Size = new System.Drawing.Size(65, 29);
             this.lblCurp.TabIndex = 5;
             this.lblCurp.Text = "CURP:";
+            this.lblCurp.Click += new System.EventHandler(this.lblCurp_Click);
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(97, 42);
+            this.txtNombre.Location = new System.Drawing.Point(96, 84);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(125, 27);
             this.txtNombre.TabIndex = 6;
+            this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
             this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // txtApellido
             // 
-            this.txtApellido.Location = new System.Drawing.Point(96, 87);
+            this.txtApellido.Location = new System.Drawing.Point(95, 129);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(125, 27);
             this.txtApellido.TabIndex = 7;
+            this.txtApellido.TextChanged += new System.EventHandler(this.txtApellido_TextChanged);
             this.txtApellido.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtApellido_KeyDown);
             this.txtApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellido_KeyPress);
             // 
             // txtTelefono
             // 
-            this.txtTelefono.Location = new System.Drawing.Point(96, 144);
+            this.txtTelefono.Location = new System.Drawing.Point(95, 186);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(125, 27);
             this.txtTelefono.TabIndex = 8;
@@ -136,7 +158,7 @@
             // 
             // txtRfc
             // 
-            this.txtRfc.Location = new System.Drawing.Point(96, 204);
+            this.txtRfc.Location = new System.Drawing.Point(95, 246);
             this.txtRfc.Name = "txtRfc";
             this.txtRfc.Size = new System.Drawing.Size(125, 27);
             this.txtRfc.TabIndex = 9;
@@ -145,7 +167,7 @@
             // 
             // txtCurp
             // 
-            this.txtCurp.Location = new System.Drawing.Point(96, 262);
+            this.txtCurp.Location = new System.Drawing.Point(95, 304);
             this.txtCurp.Name = "txtCurp";
             this.txtCurp.Size = new System.Drawing.Size(125, 27);
             this.txtCurp.TabIndex = 10;
@@ -157,7 +179,7 @@
             this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.btnAgregar.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnAgregar.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnAgregar.Location = new System.Drawing.Point(96, 318);
+            this.btnAgregar.Location = new System.Drawing.Point(96, 345);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(125, 29);
             this.btnAgregar.TabIndex = 11;
@@ -171,9 +193,9 @@
             this.bntEliminar.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.bntEliminar.Font = new System.Drawing.Font("Sitka Banner", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.bntEliminar.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.bntEliminar.Location = new System.Drawing.Point(0, 451);
+            this.bntEliminar.Location = new System.Drawing.Point(0, 512);
             this.bntEliminar.Name = "bntEliminar";
-            this.bntEliminar.Size = new System.Drawing.Size(295, 49);
+            this.bntEliminar.Size = new System.Drawing.Size(661, 49);
             this.bntEliminar.TabIndex = 12;
             this.bntEliminar.Text = "Eliminar";
             this.bntEliminar.UseVisualStyleBackColor = false;
@@ -191,19 +213,175 @@
             // button1
             // 
             this.button1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button1.Location = new System.Drawing.Point(0, 422);
+            this.button1.Location = new System.Drawing.Point(0, 483);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(295, 29);
+            this.button1.Size = new System.Drawing.Size(661, 29);
             this.button1.TabIndex = 14;
             this.button1.Text = "Actualizar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btnpersonal
+            // 
+            this.btnpersonal.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnpersonal.Location = new System.Drawing.Point(12, 6);
+            this.btnpersonal.Name = "btnpersonal";
+            this.btnpersonal.Size = new System.Drawing.Size(113, 29);
+            this.btnpersonal.TabIndex = 15;
+            this.btnpersonal.Text = "Personal";
+            this.btnpersonal.UseVisualStyleBackColor = true;
+            this.btnpersonal.Click += new System.EventHandler(this.btnpersonal_Click);
+            // 
+            // btnprovedor
+            // 
+            this.btnprovedor.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnprovedor.Location = new System.Drawing.Point(155, 7);
+            this.btnprovedor.Name = "btnprovedor";
+            this.btnprovedor.Size = new System.Drawing.Size(115, 29);
+            this.btnprovedor.TabIndex = 16;
+            this.btnprovedor.Text = "proovedores";
+            this.btnprovedor.UseVisualStyleBackColor = true;
+            this.btnprovedor.Click += new System.EventHandler(this.btnprovedor_Click);
+            // 
+            // lblTrabajadores
+            // 
+            this.lblTrabajadores.AutoSize = true;
+            this.lblTrabajadores.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblTrabajadores.Location = new System.Drawing.Point(71, 48);
+            this.lblTrabajadores.Name = "lblTrabajadores";
+            this.lblTrabajadores.Size = new System.Drawing.Size(166, 23);
+            this.lblTrabajadores.TabIndex = 17;
+            this.lblTrabajadores.Text = "TRABAJADORES";
+            this.lblTrabajadores.Click += new System.EventHandler(this.lblpersonal_Click);
+            // 
+            // lblPersonal
+            // 
+            this.lblPersonal.AutoSize = true;
+            this.lblPersonal.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblPersonal.Location = new System.Drawing.Point(342, 48);
+            this.lblPersonal.Name = "lblPersonal";
+            this.lblPersonal.Size = new System.Drawing.Size(114, 23);
+            this.lblPersonal.TabIndex = 18;
+            this.lblPersonal.Text = "PERSONAL";
+            // 
+            // btnAgregarPersonal
+            // 
+            this.btnAgregarPersonal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btnAgregarPersonal.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAgregarPersonal.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnAgregarPersonal.Location = new System.Drawing.Point(361, 349);
+            this.btnAgregarPersonal.Name = "btnAgregarPersonal";
+            this.btnAgregarPersonal.Size = new System.Drawing.Size(125, 29);
+            this.btnAgregarPersonal.TabIndex = 29;
+            this.btnAgregarPersonal.Text = "Agregar ";
+            this.btnAgregarPersonal.UseVisualStyleBackColor = false;
+            this.btnAgregarPersonal.Click += new System.EventHandler(this.btnAgregarPersonal_Click);
+            // 
+            // txtCurpPersonal
+            // 
+            this.txtCurpPersonal.Location = new System.Drawing.Point(360, 308);
+            this.txtCurpPersonal.Name = "txtCurpPersonal";
+            this.txtCurpPersonal.Size = new System.Drawing.Size(125, 27);
+            this.txtCurpPersonal.TabIndex = 28;
+            // 
+            // txtRfcPersonal
+            // 
+            this.txtRfcPersonal.Location = new System.Drawing.Point(360, 250);
+            this.txtRfcPersonal.Name = "txtRfcPersonal";
+            this.txtRfcPersonal.Size = new System.Drawing.Size(125, 27);
+            this.txtRfcPersonal.TabIndex = 27;
+            // 
+            // txtTelefonoPersonal
+            // 
+            this.txtTelefonoPersonal.Location = new System.Drawing.Point(360, 190);
+            this.txtTelefonoPersonal.Name = "txtTelefonoPersonal";
+            this.txtTelefonoPersonal.Size = new System.Drawing.Size(125, 27);
+            this.txtTelefonoPersonal.TabIndex = 26;
+            // 
+            // txtApellidoPersonal
+            // 
+            this.txtApellidoPersonal.Location = new System.Drawing.Point(360, 133);
+            this.txtApellidoPersonal.Name = "txtApellidoPersonal";
+            this.txtApellidoPersonal.Size = new System.Drawing.Size(125, 27);
+            this.txtApellidoPersonal.TabIndex = 25;
+            // 
+            // txtNombrePersonal
+            // 
+            this.txtNombrePersonal.Location = new System.Drawing.Point(361, 88);
+            this.txtNombrePersonal.Name = "txtNombrePersonal";
+            this.txtNombrePersonal.Size = new System.Drawing.Size(125, 27);
+            this.txtNombrePersonal.TabIndex = 24;
+            // 
+            // lblCurpPersonal
+            // 
+            this.lblCurpPersonal.AutoSize = true;
+            this.lblCurpPersonal.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblCurpPersonal.Location = new System.Drawing.Point(295, 304);
+            this.lblCurpPersonal.Name = "lblCurpPersonal";
+            this.lblCurpPersonal.Size = new System.Drawing.Size(65, 29);
+            this.lblCurpPersonal.TabIndex = 23;
+            this.lblCurpPersonal.Text = "CURP:";
+            // 
+            // lblRFCPersonal
+            // 
+            this.lblRFCPersonal.AutoSize = true;
+            this.lblRFCPersonal.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblRFCPersonal.Location = new System.Drawing.Point(308, 246);
+            this.lblRFCPersonal.Name = "lblRFCPersonal";
+            this.lblRFCPersonal.Size = new System.Drawing.Size(52, 29);
+            this.lblRFCPersonal.TabIndex = 22;
+            this.lblRFCPersonal.Text = "RFC:";
+            // 
+            // lblTelefonoPersonal
+            // 
+            this.lblTelefonoPersonal.AutoSize = true;
+            this.lblTelefonoPersonal.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblTelefonoPersonal.Location = new System.Drawing.Point(276, 186);
+            this.lblTelefonoPersonal.Name = "lblTelefonoPersonal";
+            this.lblTelefonoPersonal.Size = new System.Drawing.Size(89, 29);
+            this.lblTelefonoPersonal.TabIndex = 21;
+            this.lblTelefonoPersonal.Text = "Telefono:";
+            // 
+            // lblApellidoPersonal
+            // 
+            this.lblApellidoPersonal.AutoSize = true;
+            this.lblApellidoPersonal.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblApellidoPersonal.Location = new System.Drawing.Point(276, 129);
+            this.lblApellidoPersonal.Name = "lblApellidoPersonal";
+            this.lblApellidoPersonal.Size = new System.Drawing.Size(84, 29);
+            this.lblApellidoPersonal.TabIndex = 20;
+            this.lblApellidoPersonal.Text = "Apellido:";
+            // 
+            // lblNombrePersonal
+            // 
+            this.lblNombrePersonal.AutoSize = true;
+            this.lblNombrePersonal.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblNombrePersonal.Location = new System.Drawing.Point(276, 84);
+            this.lblNombrePersonal.Name = "lblNombrePersonal";
+            this.lblNombrePersonal.Size = new System.Drawing.Size(85, 29);
+            this.lblNombrePersonal.TabIndex = 19;
+            this.lblNombrePersonal.Text = "Nombre:";
+            // 
             // bntpersonal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(950, 500);
+            this.ClientSize = new System.Drawing.Size(1282, 561);
+            this.Controls.Add(this.btnAgregarPersonal);
+            this.Controls.Add(this.txtCurpPersonal);
+            this.Controls.Add(this.txtRfcPersonal);
+            this.Controls.Add(this.txtTelefonoPersonal);
+            this.Controls.Add(this.txtApellidoPersonal);
+            this.Controls.Add(this.txtNombrePersonal);
+            this.Controls.Add(this.lblCurpPersonal);
+            this.Controls.Add(this.lblRFCPersonal);
+            this.Controls.Add(this.lblTelefonoPersonal);
+            this.Controls.Add(this.lblApellidoPersonal);
+            this.Controls.Add(this.lblNombrePersonal);
+            this.Controls.Add(this.lblPersonal);
+            this.Controls.Add(this.lblTrabajadores);
+            this.Controls.Add(this.btnprovedor);
+            this.Controls.Add(this.btnpersonal);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.bntEliminar);
@@ -245,5 +423,20 @@
         private Button bntEliminar;
         private Button button2;
         private Button button1;
+        private Button btnpersonal;
+        private Button btnprovedor;
+        private Label lblTrabajadores;
+        private Label lblPersonal;
+        private Button btnAgregarPersonal;
+        private TextBox txtCurpPersonal;
+        private TextBox txtRfcPersonal;
+        private TextBox txtTelefonoPersonal;
+        private TextBox txtApellidoPersonal;
+        private TextBox txtNombrePersonal;
+        private Label lblCurpPersonal;
+        private Label lblRFCPersonal;
+        private Label lblTelefonoPersonal;
+        private Label lblApellidoPersonal;
+        private Label lblNombrePersonal;
     }
 }
