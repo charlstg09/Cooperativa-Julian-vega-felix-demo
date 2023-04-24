@@ -132,7 +132,7 @@ create table personal (
 );
 
 
-// revisar
+/*revisar */
 drop table personal
 
 CREATE TABLE personal(

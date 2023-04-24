@@ -149,5 +149,26 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
                 btnEnviar.Focus();
             }
         }
+
+        private void btnExportar_Click(object sender, EventArgs e)
+        {
+            lblMarisco.Visible = false;
+            lblId.Visible = false;
+            lblFecha.Visible = false;
+            lblId.Visible = false;
+            lblPeso.Visible = false;
+
+
+            //textbox
+            txtIdUsuario.Visible = false;
+            txtPesoTotal.Visible = false;
+            cmbTipoMarisco.Visible = false;
+            dateTimePicker1.Visible = false;
+
+            //button
+            btnEnviar.Visible = false;
+
+
+        }
     }
 } 

@@ -37,13 +37,23 @@
             this.txtPesoTotal = new System.Windows.Forms.TextBox();
             this.btnEnviar = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.sqlCommandBuilder1 = new Microsoft.Data.SqlClient.SqlCommandBuilder();
+            this.btnEntregaPersonal = new System.Windows.Forms.Button();
+            this.btnExportarProovedores = new System.Windows.Forms.Button();
+            this.lblIdCompañia = new System.Windows.Forms.Label();
+            this.lblIdMarisco = new System.Windows.Forms.Label();
+            this.lblPesoTotalProovedores = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.btnExportar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblId
             // 
             this.lblId.AutoSize = true;
             this.lblId.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblId.Location = new System.Drawing.Point(228, 129);
+            this.lblId.Location = new System.Drawing.Point(115, 126);
             this.lblId.Name = "lblId";
             this.lblId.Size = new System.Drawing.Size(92, 29);
             this.lblId.TabIndex = 2;
@@ -53,7 +63,7 @@
             // 
             this.lblMarisco.AutoSize = true;
             this.lblMarisco.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblMarisco.Location = new System.Drawing.Point(176, 83);
+            this.lblMarisco.Location = new System.Drawing.Point(63, 80);
             this.lblMarisco.Name = "lblMarisco";
             this.lblMarisco.Size = new System.Drawing.Size(144, 29);
             this.lblMarisco.TabIndex = 3;
@@ -63,7 +73,7 @@
             // 
             this.lblFecha.AutoSize = true;
             this.lblFecha.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblFecha.Location = new System.Drawing.Point(262, 181);
+            this.lblFecha.Location = new System.Drawing.Point(149, 178);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(58, 29);
             this.lblFecha.TabIndex = 4;
@@ -73,7 +83,7 @@
             // 
             this.lblPeso.AutoSize = true;
             this.lblPeso.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblPeso.Location = new System.Drawing.Point(222, 237);
+            this.lblPeso.Location = new System.Drawing.Point(109, 234);
             this.lblPeso.Name = "lblPeso";
             this.lblPeso.Size = new System.Drawing.Size(95, 29);
             this.lblPeso.TabIndex = 5;
@@ -86,7 +96,7 @@
             "pescado",
             "jaiba",
             "camaron"});
-            this.cmbTipoMarisco.Location = new System.Drawing.Point(323, 86);
+            this.cmbTipoMarisco.Location = new System.Drawing.Point(210, 83);
             this.cmbTipoMarisco.Name = "cmbTipoMarisco";
             this.cmbTipoMarisco.Size = new System.Drawing.Size(151, 28);
             this.cmbTipoMarisco.TabIndex = 6;
@@ -95,7 +105,7 @@
             // 
             // txtIdUsuario
             // 
-            this.txtIdUsuario.Location = new System.Drawing.Point(323, 132);
+            this.txtIdUsuario.Location = new System.Drawing.Point(210, 129);
             this.txtIdUsuario.Name = "txtIdUsuario";
             this.txtIdUsuario.Size = new System.Drawing.Size(151, 30);
             this.txtIdUsuario.TabIndex = 7;
@@ -104,7 +114,7 @@
             // 
             // txtPesoTotal
             // 
-            this.txtPesoTotal.Location = new System.Drawing.Point(323, 240);
+            this.txtPesoTotal.Location = new System.Drawing.Point(210, 237);
             this.txtPesoTotal.Name = "txtPesoTotal";
             this.txtPesoTotal.Size = new System.Drawing.Size(151, 30);
             this.txtPesoTotal.TabIndex = 9;
@@ -113,7 +123,7 @@
             // 
             // btnEnviar
             // 
-            this.btnEnviar.Location = new System.Drawing.Point(313, 316);
+            this.btnEnviar.Location = new System.Drawing.Point(200, 313);
             this.btnEnviar.Name = "btnEnviar";
             this.btnEnviar.Size = new System.Drawing.Size(161, 29);
             this.btnEnviar.TabIndex = 10;
@@ -124,16 +134,104 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.CalendarFont = new System.Drawing.Font("SimSun", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.dateTimePicker1.Location = new System.Drawing.Point(326, 180);
+            this.dateTimePicker1.Location = new System.Drawing.Point(213, 177);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(148, 30);
             this.dateTimePicker1.TabIndex = 11;
+            // 
+            // btnEntregaPersonal
+            // 
+            this.btnEntregaPersonal.Location = new System.Drawing.Point(200, 30);
+            this.btnEntregaPersonal.Name = "btnEntregaPersonal";
+            this.btnEntregaPersonal.Size = new System.Drawing.Size(161, 29);
+            this.btnEntregaPersonal.TabIndex = 12;
+            this.btnEntregaPersonal.Text = "Entrega";
+            this.btnEntregaPersonal.UseVisualStyleBackColor = true;
+            // 
+            // btnExportarProovedores
+            // 
+            this.btnExportarProovedores.Location = new System.Drawing.Point(485, 30);
+            this.btnExportarProovedores.Name = "btnExportarProovedores";
+            this.btnExportarProovedores.Size = new System.Drawing.Size(161, 29);
+            this.btnExportarProovedores.TabIndex = 13;
+            this.btnExportarProovedores.Text = "Exportar";
+            this.btnExportarProovedores.UseVisualStyleBackColor = true;
+            this.btnExportarProovedores.Click += new System.EventHandler(this.btnExportar_Click);
+            // 
+            // lblIdCompañia
+            // 
+            this.lblIdCompañia.AutoSize = true;
+            this.lblIdCompañia.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblIdCompañia.Location = new System.Drawing.Point(379, 80);
+            this.lblIdCompañia.Name = "lblIdCompañia";
+            this.lblIdCompañia.Size = new System.Drawing.Size(110, 29);
+            this.lblIdCompañia.TabIndex = 14;
+            this.lblIdCompañia.Text = "IdCompañia";
+            // 
+            // lblIdMarisco
+            // 
+            this.lblIdMarisco.AutoSize = true;
+            this.lblIdMarisco.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblIdMarisco.Location = new System.Drawing.Point(379, 126);
+            this.lblIdMarisco.Name = "lblIdMarisco";
+            this.lblIdMarisco.Size = new System.Drawing.Size(93, 29);
+            this.lblIdMarisco.TabIndex = 15;
+            this.lblIdMarisco.Text = "IdMarisco";
+            // 
+            // lblPesoTotalProovedores
+            // 
+            this.lblPesoTotalProovedores.AutoSize = true;
+            this.lblPesoTotalProovedores.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblPesoTotalProovedores.Location = new System.Drawing.Point(379, 179);
+            this.lblPesoTotalProovedores.Name = "lblPesoTotalProovedores";
+            this.lblPesoTotalProovedores.Size = new System.Drawing.Size(95, 29);
+            this.lblPesoTotalProovedores.TabIndex = 16;
+            this.lblPesoTotalProovedores.Text = "Peso Total";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(495, 83);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(151, 30);
+            this.textBox1.TabIndex = 17;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(495, 129);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(151, 30);
+            this.textBox2.TabIndex = 18;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(495, 178);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(151, 30);
+            this.textBox3.TabIndex = 19;
+            // 
+            // btnExportar
+            // 
+            this.btnExportar.Location = new System.Drawing.Point(485, 236);
+            this.btnExportar.Name = "btnExportar";
+            this.btnExportar.Size = new System.Drawing.Size(161, 29);
+            this.btnExportar.TabIndex = 20;
+            this.btnExportar.Text = "Exportar";
+            this.btnExportar.UseVisualStyleBackColor = true;
             // 
             // entrega
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(763, 450);
+            this.Controls.Add(this.btnExportar);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.lblPesoTotalProovedores);
+            this.Controls.Add(this.lblIdMarisco);
+            this.Controls.Add(this.lblIdCompañia);
+            this.Controls.Add(this.btnExportarProovedores);
+            this.Controls.Add(this.btnEntregaPersonal);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.btnEnviar);
             this.Controls.Add(this.txtPesoTotal);
@@ -164,5 +262,15 @@
         private TextBox txtPesoTotal;
         private Button btnEnviar;
         private DateTimePicker dateTimePicker1;
+        private Microsoft.Data.SqlClient.SqlCommandBuilder sqlCommandBuilder1;
+        private Button btnEntregaPersonal;
+        private Button btnExportarProovedores;
+        private Label lblIdCompañia;
+        private Label lblIdMarisco;
+        private Label lblPesoTotalProovedores;
+        private TextBox textBox1;
+        private TextBox textBox2;
+        private TextBox textBox3;
+        private Button btnExportar;
     }
 }
