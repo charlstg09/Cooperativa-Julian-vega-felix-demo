@@ -17,11 +17,19 @@ public partial class PruebaContext : DbContext
 
     public virtual DbSet<Admin> Admins { get; set; }
 
+    public virtual DbSet<Area> Areas { get; set; }
+
+    public virtual DbSet<Compañium> Compañia { get; set; }
+
     public virtual DbSet<Entrega> Entregas { get; set; }
+
+    public virtual DbSet<Exportar> Exportars { get; set; }
 
     public virtual DbSet<Marisco> Mariscos { get; set; }
 
     public virtual DbSet<Persona> Personas { get; set; }
+
+    public virtual DbSet<Personal> Personals { get; set; }
 
     public virtual DbSet<Trabajadore> Trabajadores { get; set; }
 
@@ -52,6 +60,44 @@ public partial class PruebaContext : DbContext
                 .HasColumnName("usuario");
         });
 
+        modelBuilder.Entity<Area>(entity =>
+        {
+            entity.HasKey(e => e.IdAre).HasName("PK__area__3E0F32FB3FBFEB9B");
+
+            entity.ToTable("area");
+
+            entity.Property(e => e.IdAre).HasColumnName("idAre");
+            entity.Property(e => e.DesAre)
+                .HasMaxLength(10)
+                .IsUnicode(false)
+                .HasColumnName("desAre");
+        });
+
+        modelBuilder.Entity<Compañium>(entity =>
+        {
+            entity.HasKey(e => e.IdCom).HasName("PK__compañia__398F1E95BEA5D68C");
+
+            entity.ToTable("compañia");
+
+            entity.Property(e => e.IdCom).HasColumnName("idCom");
+            entity.Property(e => e.EmaComp)
+                .HasMaxLength(80)
+                .IsUnicode(false)
+                .HasColumnName("emaComp");
+            entity.Property(e => e.EncComp)
+                .HasMaxLength(80)
+                .IsUnicode(false)
+                .HasColumnName("encComp");
+            entity.Property(e => e.NomCom)
+                .HasMaxLength(60)
+                .IsUnicode(false)
+                .HasColumnName("nomCom");
+            entity.Property(e => e.NumComp)
+                .HasMaxLength(10)
+                .IsUnicode(false)
+                .HasColumnName("numComp");
+        });
+
         modelBuilder.Entity<Entrega>(entity =>
         {
             entity.HasKey(e => e.IdEnt).HasName("PK__entrega__3F17F22B7E320961");
@@ -65,7 +111,7 @@ public partial class PruebaContext : DbContext
             entity.Property(e => e.IdMar).HasColumnName("idMar");
             entity.Property(e => e.IdTra).HasColumnName("idTra");
             entity.Property(e => e.PesTot)
-                .HasColumnType("decimal(18, 0)")
+                .HasColumnType("decimal(10, 3)")
                 .HasColumnName("pesTot");
 
             entity.HasOne(d => d.IdMarNavigation).WithMany(p => p.Entregas)
@@ -79,6 +125,32 @@ public partial class PruebaContext : DbContext
                 .HasConstraintName("FK__entrega__idTra__2D27B809");
         });
 
+        modelBuilder.Entity<Exportar>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToTable("exportar");
+
+            entity.Property(e => e.IdCom).HasColumnName("idCom");
+            entity.Property(e => e.IdExp)
+                .ValueGeneratedOnAdd()
+                .HasColumnName("idExp");
+            entity.Property(e => e.IdMar).HasColumnName("idMar");
+            entity.Property(e => e.PesTot)
+                .HasColumnType("decimal(10, 2)")
+                .HasColumnName("pesTot");
+
+            entity.HasOne(d => d.IdComNavigation).WithMany()
+                .HasForeignKey(d => d.IdCom)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__exportar__idCom__3D5E1FD2");
+
+            entity.HasOne(d => d.IdMarNavigation).WithMany()
+                .HasForeignKey(d => d.IdMar)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__exportar__idMar__3E52440B");
+        });
+
         modelBuilder.Entity<Marisco>(entity =>
         {
             entity.HasKey(e => e.IdMar).HasName("PK__mariscos__3DC6CB1E3A781052");
@@ -87,7 +159,7 @@ public partial class PruebaContext : DbContext
 
             entity.Property(e => e.IdMar).HasColumnName("idMar");
             entity.Property(e => e.TipMariscos)
-                .HasMaxLength(1)
+                .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("tipMariscos");
         });
@@ -110,6 +182,41 @@ public partial class PruebaContext : DbContext
                 .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("nombre");
+        });
+
+        modelBuilder.Entity<Personal>(entity =>
+        {
+            entity.HasKey(e => e.IdPer).HasName("PK__personal__3D78D11027E9C848");
+
+            entity.ToTable("personal");
+
+            entity.Property(e => e.IdPer).HasColumnName("idPer");
+            entity.Property(e => e.ApePer)
+                .HasMaxLength(90)
+                .IsUnicode(false)
+                .HasColumnName("apePer");
+            entity.Property(e => e.Curp)
+                .HasMaxLength(18)
+                .IsUnicode(false)
+                .HasColumnName("CURP");
+            entity.Property(e => e.IdAre).HasColumnName("idAre");
+            entity.Property(e => e.NomPer)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("nomPer");
+            entity.Property(e => e.Rfc)
+                .HasMaxLength(16)
+                .IsUnicode(false)
+                .HasColumnName("RFC");
+            entity.Property(e => e.TelPer)
+                .HasMaxLength(10)
+                .IsUnicode(false)
+                .HasColumnName("telPer");
+
+            entity.HasOne(d => d.IdAreNavigation).WithMany(p => p.Personals)
+                .HasForeignKey(d => d.IdAre)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__personal__idAre__45F365D3");
         });
 
         modelBuilder.Entity<Trabajadore>(entity =>

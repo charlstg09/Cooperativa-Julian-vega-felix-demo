@@ -109,7 +109,13 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
         {
             refrescar();
 
+            
             cambio();
+
+
+            comboBox1.Items.Add("Limpieza");
+            comboBox1.Items.Add("resaga");
+            comboBox1.Items.Add("bomba");
         }
         public void cambio()
         {
@@ -261,8 +267,47 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
             }
             else
             {
+
+                string opcionSeleccionada = comboBox1.SelectedItem.ToString().ToLower();
+                int valor = 0;
+
+                switch (opcionSeleccionada)
+                {
+                    case "limpieza":
+                        valor = 1;
+                        break;
+                    case "resaga":
+                        valor = 2;
+                        break;
+                    case "bomba":
+                        valor = 3;
+                        break;
+                    default:
+                        // Asignar valor por defecto o manejar el caso de error
+                        break;
+                }
+
+                // Utilizar la variable "valor" para insertar el valor en la base de datos
+
+                Personal persona = new Personal();
+                persona.IdAre = valor;
+                persona.NomPer = txtNombrePersonal.Text;
+                persona.ApePer = txtApellidoPersonal.Text;
+                persona.TelPer = txtTelefonoPersonal.Text;
+                persona.Rfc = txtRfcPersonal.Text;
+                persona.Curp = txtCurpPersonal.Text;
+                
+                dt.Personals.Add(persona);
+                dt.SaveChanges();
+
                 
             }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+
         }
     }
 }

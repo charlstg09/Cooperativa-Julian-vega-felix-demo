@@ -105,3 +105,46 @@ create table exportar (
 );
 
 
+
+exec sp_rename 'proovedores', 'personal';
+
+
+create table area (
+	idAre int primary key identity(1,1) not null,
+	desAre varchar(10) not null
+);
+
+insert into area values('limpieza')
+insert into area values ('resaga')
+insert into area values('bomba')
+
+select * from area
+
+create table personal (
+	idCom int primary key identity(1,1) not null,
+	idAre int not null,
+	nomCom varchar(60) not null,
+	encComp varchar(80) not null, 
+	numComp varchar(10) not null, 
+	emaComp varchar(80) not null,
+	foreign key (idAre) references area(idAre)
+
+);
+
+
+// revisar
+drop table personal
+
+CREATE TABLE personal(
+idPer INT PRIMARY KEY identity(1,1) NOT NULL,
+idAre int not null,
+
+nomPer VARCHAR(50) NOT NULL,
+apePer VARCHAR(90) NOT NULL,
+telPer VARCHAR(10) NOT NULL,
+RFC varchar(16),
+CURP varchar(18) NOT NULL,
+foreign key (idAre) references area(idAre)
+);
+
+

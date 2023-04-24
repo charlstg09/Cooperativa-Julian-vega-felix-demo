@@ -7,7 +7,7 @@ public partial class Marisco
 {
     public int IdMar { get; set; }
 
-    public string TipMariscos { get; set; } = null!;
+    public string? TipMariscos { get; set; }
 
     public virtual ICollection<Entrega> Entregas { get; set; } = new List<Entrega>();
 }

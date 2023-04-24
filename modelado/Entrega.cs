@@ -13,7 +13,7 @@ public partial class Entrega
 
     public DateTime FecEnt { get; set; }
 
-    public decimal PesTot { get; set; }
+    public decimal? PesTot { get; set; }
 
     public virtual Marisco IdMarNavigation { get; set; } = null!;
 

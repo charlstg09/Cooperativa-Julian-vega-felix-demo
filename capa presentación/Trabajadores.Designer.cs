@@ -58,6 +58,8 @@
             this.lblTelefonoPersonal = new System.Windows.Forms.Label();
             this.lblApellidoPersonal = new System.Windows.Forms.Label();
             this.lblNombrePersonal = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.lblTipo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -269,7 +271,7 @@
             this.btnAgregarPersonal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.btnAgregarPersonal.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnAgregarPersonal.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnAgregarPersonal.Location = new System.Drawing.Point(361, 349);
+            this.btnAgregarPersonal.Location = new System.Drawing.Point(361, 380);
             this.btnAgregarPersonal.Name = "btnAgregarPersonal";
             this.btnAgregarPersonal.Size = new System.Drawing.Size(125, 29);
             this.btnAgregarPersonal.TabIndex = 29;
@@ -362,11 +364,33 @@
             this.lblNombrePersonal.TabIndex = 19;
             this.lblNombrePersonal.Text = "Nombre:";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(360, 346);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(126, 28);
+            this.comboBox1.TabIndex = 30;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // lblTipo
+            // 
+            this.lblTipo.AutoSize = true;
+            this.lblTipo.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblTipo.Location = new System.Drawing.Point(235, 344);
+            this.lblTipo.Name = "lblTipo";
+            this.lblTipo.Size = new System.Drawing.Size(130, 29);
+            this.lblTipo.TabIndex = 31;
+            this.lblTipo.Text = "Tipo Personal:";
+            // 
             // bntpersonal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1282, 561);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.lblTipo);
             this.Controls.Add(this.btnAgregarPersonal);
             this.Controls.Add(this.txtCurpPersonal);
             this.Controls.Add(this.txtRfcPersonal);
@@ -438,5 +462,7 @@
         private Label lblTelefonoPersonal;
         private Label lblApellidoPersonal;
         private Label lblNombrePersonal;
+        private ComboBox comboBox1;
+        private Label lblTipo;
     }
 }
