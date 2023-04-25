@@ -226,7 +226,7 @@
             // btnpersonal
             // 
             this.btnpersonal.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnpersonal.Location = new System.Drawing.Point(12, 6);
+            this.btnpersonal.Location = new System.Drawing.Point(342, 7);
             this.btnpersonal.Name = "btnpersonal";
             this.btnpersonal.Size = new System.Drawing.Size(113, 29);
             this.btnpersonal.TabIndex = 15;
@@ -237,7 +237,7 @@
             // btnprovedor
             // 
             this.btnprovedor.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnprovedor.Location = new System.Drawing.Point(155, 7);
+            this.btnprovedor.Location = new System.Drawing.Point(95, 7);
             this.btnprovedor.Name = "btnprovedor";
             this.btnprovedor.Size = new System.Drawing.Size(115, 29);
             this.btnprovedor.TabIndex = 16;
@@ -251,9 +251,9 @@
             this.lblTrabajadores.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblTrabajadores.Location = new System.Drawing.Point(71, 48);
             this.lblTrabajadores.Name = "lblTrabajadores";
-            this.lblTrabajadores.Size = new System.Drawing.Size(166, 23);
+            this.lblTrabajadores.Size = new System.Drawing.Size(153, 23);
             this.lblTrabajadores.TabIndex = 17;
-            this.lblTrabajadores.Text = "TRABAJADORES";
+            this.lblTrabajadores.Text = "Proovedores";
             this.lblTrabajadores.Click += new System.EventHandler(this.lblpersonal_Click);
             // 
             // lblPersonal

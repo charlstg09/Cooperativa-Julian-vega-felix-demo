@@ -107,10 +107,7 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
         private void bntpersonal_Load(object sender, EventArgs e)
         {
-            refrescar();
-
-            
-            cambio();
+           
 
 
             comboBox1.Items.Add("Limpieza");
@@ -172,39 +169,30 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
         private void btnprovedor_Click(object sender, EventArgs e)
         {
+            OcultarPesonal();
+            
+
             //ocultar labels
-            lblNombre.Visible = false;
-            lblApellido.Visible = false;
-            lblTelefono.Visible = false;
-            lblRFC.Visible = false;
-            lblCurp.Visible = false;
-
-            //ocultar textboxs
-
-            txtNombre.Visible = false;
-            txtApellido.Visible = false;
-            txtTelefono.Visible = false;
-            txtRfc.Visible = false;
-            txtCurp.Visible = false;
 
 
-            //ocultar botones
-            btnAgregar.Visible = false;
-            button1.Visible = false;
-            bntEliminar.Visible = false;
+
+
+            refrescar();
+
+
+            cambio();
 
         }
 
-        private void btnpersonal_Click(object sender, EventArgs e)
+        public void OcultarPesonal()
         {
-            //ocultar labels
             lblNombre.Visible = true;
             lblApellido.Visible = true;
             lblTelefono.Visible = true;
             lblRFC.Visible = true;
             lblCurp.Visible = true;
 
-            //ocultar textboxs
+
 
             txtNombre.Visible = true;
             txtApellido.Visible = true;
@@ -213,10 +201,100 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
             txtCurp.Visible = true;
 
 
-            //ocultar botones
+
             btnAgregar.Visible = true;
             button1.Visible = true;
             bntEliminar.Visible = true;
+
+            //labels
+            lblPersonal.Visible = false;
+            lblApellidoPersonal.Visible = false;
+            lblTipo.Visible = false;
+            lblNombrePersonal.Visible = false;
+            lblTelefonoPersonal.Visible = false;
+            lblRFCPersonal.Visible = false;
+            lblCurpPersonal.Visible = false;
+
+            //texts
+            txtTelefonoPersonal.Visible = false;
+            txtNombrePersonal.Visible = false;
+            txtApellidoPersonal.Visible = false;
+            txtRfcPersonal.Visible = false;
+            lblCurpPersonal.Visible = false;
+            comboBox1.Visible = false;
+            txtCurpPersonal.Visible = false;
+
+            //button 
+            btnAgregarPersonal.Visible = false;
+
+        }
+        private void btnpersonal_Click(object sender, EventArgs e)
+        {
+
+
+            OcultarProovedores();
+
+
+            RefrescarPersonal();
+        }
+
+        public void RefrescarPersonal()
+        {
+            var personal = dt.Personals.ToList();
+
+            dataGridView1.DataSource = personal;
+
+            dataGridView1.Columns[0].HeaderText = "ID Personal";
+            dataGridView1.Columns[1].HeaderText = "ID Area";
+            dataGridView1.Columns[2].HeaderText = "Nombre";
+            dataGridView1.Columns[3].HeaderText = "Apellido";
+            dataGridView1.Columns[4].HeaderText = "Telefono";
+            dataGridView1.Columns[5].HeaderText = "RFC";
+            dataGridView1.Columns[6].HeaderText = "CURP";
+        }
+
+        public void OcultarProovedores()
+        {
+            lblTrabajadores.Visible = false;
+            lblApellidoPersonal.Visible = true;
+            lblTipo.Visible = true;
+            lblNombrePersonal.Visible = true;
+            lblTelefonoPersonal.Visible = true;
+            lblRFCPersonal.Visible = true;
+            lblCurpPersonal.Visible = true;
+
+            //texts
+            txtTelefonoPersonal.Visible = true;
+            txtNombrePersonal.Visible = true;
+            txtApellidoPersonal.Visible = true;
+            txtRfcPersonal.Visible = true;
+            lblCurpPersonal.Visible = true;
+            comboBox1.Visible = true;
+            lblCurpPersonal.Visible = true;
+
+            //button 
+            btnAgregarPersonal.Visible = true;
+
+
+            lblNombre.Visible = false;
+            lblApellido.Visible = false;
+            lblTelefono.Visible = false;
+            lblRFC.Visible = false;
+            lblCurp.Visible = false;
+
+            txtNombre.Visible = false;
+            txtApellido.Visible = false;
+            txtTelefono.Visible = false;
+            txtRfc.Visible = false;
+            txtCurp.Visible = false;
+
+            btnAgregar.Visible = false;
+            button1.Visible = false;
+            bntEliminar.Visible = false;
+
+
+
+
         }
 
         private void lblCurp_Click(object sender, EventArgs e)
@@ -300,7 +378,9 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
                 dt.Personals.Add(persona);
                 dt.SaveChanges();
 
-                
+                MessageBox.Show("Empleado registrado con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                RefrescarPersonal();
+
             }
         }
 

@@ -39,9 +39,7 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
         private void historial_Load(object sender, EventArgs e)
         {
-            refrescar();
-
-            cambio();
+           
         }
 
         public void refrescar()
@@ -73,6 +71,26 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
             dataGridView1.Columns[1].HeaderText = "ID Mariscos";
             dataGridView1.Columns[2].HeaderText = "ID Empleado";
             dataGridView1.Columns[3].HeaderText = "Fecha Entrega";
+            dataGridView1.Columns[4].HeaderText = "Peso Total";
+        }
+
+        private void btnPersonal_Click(object sender, EventArgs e)
+        {
+            refrescar();
+
+            cambio();
+        }
+
+        private void btnproovedores_Click(object sender, EventArgs e)
+        {
+            var query = dt.Exportars.ToList();
+            dataGridView1.DataSource = query;
+            configurarDataGridView();
+
+            dataGridView1.Columns[0].HeaderText = "ID Exporte";
+            dataGridView1.Columns[1].HeaderText = "ID Compañia";
+            dataGridView1.Columns[2].HeaderText = "ID Marisco";
+            dataGridView1.Columns[3].HeaderText = "Fecha";
             dataGridView1.Columns[4].HeaderText = "Peso Total";
         }
     }

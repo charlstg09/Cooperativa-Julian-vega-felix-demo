@@ -36,6 +36,8 @@
             this.chkTIpoMarisco = new System.Windows.Forms.CheckBox();
             this.lblId = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
+            this.btnPersonal = new System.Windows.Forms.Button();
+            this.btnproovedores = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,11 +45,11 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 83);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 90);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(800, 367);
+            this.dataGridView1.Size = new System.Drawing.Size(1234, 407);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -122,11 +124,33 @@
             this.txtId.Size = new System.Drawing.Size(101, 27);
             this.txtId.TabIndex = 17;
             // 
+            // btnPersonal
+            // 
+            this.btnPersonal.Location = new System.Drawing.Point(801, 28);
+            this.btnPersonal.Name = "btnPersonal";
+            this.btnPersonal.Size = new System.Drawing.Size(94, 29);
+            this.btnPersonal.TabIndex = 18;
+            this.btnPersonal.Text = "personal";
+            this.btnPersonal.UseVisualStyleBackColor = true;
+            this.btnPersonal.Click += new System.EventHandler(this.btnPersonal_Click);
+            // 
+            // btnproovedores
+            // 
+            this.btnproovedores.Location = new System.Drawing.Point(915, 29);
+            this.btnproovedores.Name = "btnproovedores";
+            this.btnproovedores.Size = new System.Drawing.Size(121, 29);
+            this.btnproovedores.TabIndex = 19;
+            this.btnproovedores.Text = "proovedores";
+            this.btnproovedores.UseVisualStyleBackColor = true;
+            this.btnproovedores.Click += new System.EventHandler(this.btnproovedores_Click);
+            // 
             // historial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1234, 497);
+            this.Controls.Add(this.btnproovedores);
+            this.Controls.Add(this.btnPersonal);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.lblId);
             this.Controls.Add(this.chkTIpoMarisco);
@@ -154,5 +178,7 @@
         private CheckBox chkTIpoMarisco;
         private Label lblId;
         private TextBox txtId;
+        private Button btnPersonal;
+        private Button btnproovedores;
     }
 }
