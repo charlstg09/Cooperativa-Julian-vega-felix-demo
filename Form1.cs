@@ -82,5 +82,10 @@ namespace Cooperativa_Julian_vega_felix
                 btnLogin.Focus();
             }
         }
+
+        private void txtusuario_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

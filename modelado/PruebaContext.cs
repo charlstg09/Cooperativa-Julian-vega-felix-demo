@@ -127,25 +127,26 @@ public partial class PruebaContext : DbContext
 
         modelBuilder.Entity<Exportar>(entity =>
         {
-            entity
-                .HasNoKey()
-                .ToTable("exportar");
+            entity.HasKey(e => e.IdExp).HasName("PK_Exportar");
 
+            entity.ToTable("exportar");
+
+            entity.Property(e => e.IdExp).HasColumnName("idExp");
+            entity.Property(e => e.FecExp)
+                .HasColumnType("date")
+                .HasColumnName("fecExp");
             entity.Property(e => e.IdCom).HasColumnName("idCom");
-            entity.Property(e => e.IdExp)
-                .ValueGeneratedOnAdd()
-                .HasColumnName("idExp");
             entity.Property(e => e.IdMar).HasColumnName("idMar");
             entity.Property(e => e.PesTot)
                 .HasColumnType("decimal(10, 2)")
                 .HasColumnName("pesTot");
 
-            entity.HasOne(d => d.IdComNavigation).WithMany()
+            entity.HasOne(d => d.IdComNavigation).WithMany(p => p.Exportars)
                 .HasForeignKey(d => d.IdCom)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__exportar__idCom__3D5E1FD2");
 
-            entity.HasOne(d => d.IdMarNavigation).WithMany()
+            entity.HasOne(d => d.IdMarNavigation).WithMany(p => p.Exportars)
                 .HasForeignKey(d => d.IdMar)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__exportar__idMar__3E52440B");

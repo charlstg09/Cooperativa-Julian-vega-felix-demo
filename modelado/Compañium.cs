@@ -14,4 +14,6 @@ public partial class Compañium
     public string NumComp { get; set; } = null!;
 
     public string EmaComp { get; set; } = null!;
+
+    public virtual ICollection<Exportar> Exportars { get; set; } = new List<Exportar>();
 }

@@ -42,7 +42,6 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.bntEliminar = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.btnpersonal = new System.Windows.Forms.Button();
             this.btnprovedor = new System.Windows.Forms.Button();
             this.lblTrabajadores = new System.Windows.Forms.Label();
@@ -212,17 +211,6 @@
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button1
-            // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button1.Location = new System.Drawing.Point(0, 483);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(661, 29);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "Actualizar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // btnpersonal
             // 
             this.btnpersonal.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -285,6 +273,7 @@
             this.txtCurpPersonal.Name = "txtCurpPersonal";
             this.txtCurpPersonal.Size = new System.Drawing.Size(125, 27);
             this.txtCurpPersonal.TabIndex = 28;
+            this.txtCurpPersonal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCurpPersonal_KeyPress);
             // 
             // txtRfcPersonal
             // 
@@ -292,6 +281,7 @@
             this.txtRfcPersonal.Name = "txtRfcPersonal";
             this.txtRfcPersonal.Size = new System.Drawing.Size(125, 27);
             this.txtRfcPersonal.TabIndex = 27;
+            this.txtRfcPersonal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRfcPersonal_KeyPress);
             // 
             // txtTelefonoPersonal
             // 
@@ -299,6 +289,8 @@
             this.txtTelefonoPersonal.Name = "txtTelefonoPersonal";
             this.txtTelefonoPersonal.Size = new System.Drawing.Size(125, 27);
             this.txtTelefonoPersonal.TabIndex = 26;
+            this.txtTelefonoPersonal.TextChanged += new System.EventHandler(this.txtTelefonoPersonal_TextChanged);
+            this.txtTelefonoPersonal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefonoPersonal_KeyPress);
             // 
             // txtApellidoPersonal
             // 
@@ -306,6 +298,7 @@
             this.txtApellidoPersonal.Name = "txtApellidoPersonal";
             this.txtApellidoPersonal.Size = new System.Drawing.Size(125, 27);
             this.txtApellidoPersonal.TabIndex = 25;
+            this.txtApellidoPersonal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellidoPersonal_KeyPress);
             // 
             // txtNombrePersonal
             // 
@@ -313,6 +306,7 @@
             this.txtNombrePersonal.Name = "txtNombrePersonal";
             this.txtNombrePersonal.Size = new System.Drawing.Size(125, 27);
             this.txtNombrePersonal.TabIndex = 24;
+            this.txtNombrePersonal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombrePersonal_KeyPress);
             // 
             // lblCurpPersonal
             // 
@@ -373,6 +367,7 @@
             this.comboBox1.Size = new System.Drawing.Size(126, 28);
             this.comboBox1.TabIndex = 30;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.comboBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBox1_KeyPress);
             // 
             // lblTipo
             // 
@@ -406,7 +401,6 @@
             this.Controls.Add(this.lblTrabajadores);
             this.Controls.Add(this.btnprovedor);
             this.Controls.Add(this.btnpersonal);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.bntEliminar);
             this.Controls.Add(this.btnAgregar);
@@ -446,7 +440,6 @@
         private Button btnAgregar;
         private Button bntEliminar;
         private Button button2;
-        private Button button1;
         private Button btnpersonal;
         private Button btnprovedor;
         private Label lblTrabajadores;

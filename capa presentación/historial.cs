@@ -8,6 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.EntityFrameworkCore;
+
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace Cooperativa_Julian_vega_felix.capa_presentación
 {
@@ -93,5 +96,18 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
             dataGridView1.Columns[3].HeaderText = "Fecha";
             dataGridView1.Columns[4].HeaderText = "Peso Total";
         }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            var query = dt.Set<Entrega>();
+            
+            if (chkDia.Checked)
+            {
+                query = query.Where(e => e.FecEnt.Date == DateTime.Today.Date);
+            }
+            dataGridView1.DataSource = query.ToList();
+            configurarDataGridView();
+        }
+
     }
 }

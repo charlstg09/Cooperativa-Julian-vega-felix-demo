@@ -13,6 +13,8 @@ public partial class Exportar
 
     public decimal PesTot { get; set; }
 
+    public DateTime? FecExp { get; set; }
+
     public virtual Compañium IdComNavigation { get; set; } = null!;
 
     public virtual Marisco IdMarNavigation { get; set; } = null!;

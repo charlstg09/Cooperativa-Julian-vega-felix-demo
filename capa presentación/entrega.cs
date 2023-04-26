@@ -170,5 +170,37 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
 
         }
+
+        private void btnExportar_Click_1(object sender, EventArgs e)
+        {
+
+            if (idCom != null && !string.IsNullOrWhiteSpace(IdMarExp.Text) && !string.IsNullOrWhiteSpace(PesTotExp.Text))
+            {
+                Exportar export = new Exportar();
+
+                export.IdCom = int.Parse(idCom.Text);
+                export.IdMar = int.Parse(IdMarExp.Text);
+
+                export.PesTot = decimal.Parse(PesTotExp.Text);
+
+                dt.Exportars.Add(export);
+                dt.SaveChanges();
+                MessageBox.Show("exporte se realizo con exito.", "exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+            else
+            {
+                MessageBox.Show("Por favor, complete todos los campos antes de enviar la información a la base de datos.", "Campos requeridos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+
+
+           
+        }
+
+        private void idCom_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 } 

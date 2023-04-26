@@ -10,4 +10,6 @@ public partial class Marisco
     public string? TipMariscos { get; set; }
 
     public virtual ICollection<Entrega> Entregas { get; set; } = new List<Entrega>();
+
+    public virtual ICollection<Exportar> Exportars { get; set; } = new List<Exportar>();
 }

@@ -43,9 +43,9 @@
             this.lblIdCompañia = new System.Windows.Forms.Label();
             this.lblIdMarisco = new System.Windows.Forms.Label();
             this.lblPesoTotalProovedores = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.idCom = new System.Windows.Forms.TextBox();
+            this.IdMarExp = new System.Windows.Forms.TextBox();
+            this.PesTotExp = new System.Windows.Forms.TextBox();
             this.btnExportar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -147,6 +147,7 @@
             this.btnEntregaPersonal.TabIndex = 12;
             this.btnEntregaPersonal.Text = "Entrega";
             this.btnEntregaPersonal.UseVisualStyleBackColor = true;
+            this.btnEntregaPersonal.Visible = false;
             // 
             // btnExportarProovedores
             // 
@@ -156,6 +157,7 @@
             this.btnExportarProovedores.TabIndex = 13;
             this.btnExportarProovedores.Text = "Exportar";
             this.btnExportarProovedores.UseVisualStyleBackColor = true;
+            this.btnExportarProovedores.Visible = false;
             this.btnExportarProovedores.Click += new System.EventHandler(this.btnExportar_Click);
             // 
             // lblIdCompañia
@@ -188,26 +190,27 @@
             this.lblPesoTotalProovedores.TabIndex = 16;
             this.lblPesoTotalProovedores.Text = "Peso Total";
             // 
-            // textBox1
+            // idCom
             // 
-            this.textBox1.Location = new System.Drawing.Point(495, 83);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(151, 30);
-            this.textBox1.TabIndex = 17;
+            this.idCom.Location = new System.Drawing.Point(495, 83);
+            this.idCom.Name = "idCom";
+            this.idCom.Size = new System.Drawing.Size(151, 30);
+            this.idCom.TabIndex = 17;
+            this.idCom.TextChanged += new System.EventHandler(this.idCom_TextChanged);
             // 
-            // textBox2
+            // IdMarExp
             // 
-            this.textBox2.Location = new System.Drawing.Point(495, 129);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(151, 30);
-            this.textBox2.TabIndex = 18;
+            this.IdMarExp.Location = new System.Drawing.Point(495, 129);
+            this.IdMarExp.Name = "IdMarExp";
+            this.IdMarExp.Size = new System.Drawing.Size(151, 30);
+            this.IdMarExp.TabIndex = 18;
             // 
-            // textBox3
+            // PesTotExp
             // 
-            this.textBox3.Location = new System.Drawing.Point(495, 178);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(151, 30);
-            this.textBox3.TabIndex = 19;
+            this.PesTotExp.Location = new System.Drawing.Point(495, 178);
+            this.PesTotExp.Name = "PesTotExp";
+            this.PesTotExp.Size = new System.Drawing.Size(151, 30);
+            this.PesTotExp.TabIndex = 19;
             // 
             // btnExportar
             // 
@@ -217,6 +220,7 @@
             this.btnExportar.TabIndex = 20;
             this.btnExportar.Text = "Exportar";
             this.btnExportar.UseVisualStyleBackColor = true;
+            this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click_1);
             // 
             // entrega
             // 
@@ -224,9 +228,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(763, 450);
             this.Controls.Add(this.btnExportar);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.PesTotExp);
+            this.Controls.Add(this.IdMarExp);
+            this.Controls.Add(this.idCom);
             this.Controls.Add(this.lblPesoTotalProovedores);
             this.Controls.Add(this.lblIdMarisco);
             this.Controls.Add(this.lblIdCompañia);
@@ -268,9 +272,9 @@
         private Label lblIdCompañia;
         private Label lblIdMarisco;
         private Label lblPesoTotalProovedores;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
+        private TextBox idCom;
+        private TextBox IdMarExp;
+        private TextBox PesTotExp;
         private Button btnExportar;
     }
 }

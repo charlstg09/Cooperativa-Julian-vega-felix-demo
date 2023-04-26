@@ -203,7 +203,7 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
 
             btnAgregar.Visible = true;
-            button1.Visible = true;
+            
             bntEliminar.Visible = true;
 
             //labels
@@ -289,7 +289,7 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
             txtCurp.Visible = false;
 
             btnAgregar.Visible = false;
-            button1.Visible = false;
+            
             bntEliminar.Visible = false;
 
 
@@ -388,6 +388,66 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
         {
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
 
+        }
+
+        private void txtNombrePersonal_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                e.Handled = true;
+                txtApellidoPersonal.Focus();
+            }
+        }
+
+        private void txtApellidoPersonal_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                e.Handled = true;
+                txtTelefonoPersonal.Focus();
+
+            }
+        }
+
+        private void txtTelefonoPersonal_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTelefonoPersonal_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                e.Handled = true;
+                txtRfcPersonal.Focus();
+            }
+        }
+
+        private void txtRfcPersonal_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                e.Handled = true;
+                txtCurpPersonal.Focus();
+            }
+        }
+
+        private void txtCurpPersonal_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                e.Handled = true;
+                comboBox1.Focus();
+            }
+        }
+
+        private void comboBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                e.Handled = true;
+                btnAgregarPersonal.Focus();
+            }
         }
     }
 }
