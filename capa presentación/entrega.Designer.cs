@@ -47,6 +47,9 @@
             this.IdMarExp = new System.Windows.Forms.TextBox();
             this.PesTotExp = new System.Windows.Forms.TextBox();
             this.btnExportar = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.lblTrabajadores = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblId
@@ -141,7 +144,7 @@
             // 
             // btnEntregaPersonal
             // 
-            this.btnEntregaPersonal.Location = new System.Drawing.Point(200, 30);
+            this.btnEntregaPersonal.Location = new System.Drawing.Point(200, 48);
             this.btnEntregaPersonal.Name = "btnEntregaPersonal";
             this.btnEntregaPersonal.Size = new System.Drawing.Size(161, 29);
             this.btnEntregaPersonal.TabIndex = 12;
@@ -151,7 +154,7 @@
             // 
             // btnExportarProovedores
             // 
-            this.btnExportarProovedores.Location = new System.Drawing.Point(485, 30);
+            this.btnExportarProovedores.Location = new System.Drawing.Point(485, 48);
             this.btnExportarProovedores.Name = "btnExportarProovedores";
             this.btnExportarProovedores.Size = new System.Drawing.Size(161, 29);
             this.btnExportarProovedores.TabIndex = 13;
@@ -222,11 +225,44 @@
             this.btnExportar.UseVisualStyleBackColor = true;
             this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click_1);
             // 
+            // btnSalir
+            // 
+            this.btnSalir.Location = new System.Drawing.Point(-1, 421);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(161, 29);
+            this.btnSalir.TabIndex = 21;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
+            // lblTrabajadores
+            // 
+            this.lblTrabajadores.AutoSize = true;
+            this.lblTrabajadores.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblTrabajadores.Location = new System.Drawing.Point(208, 22);
+            this.lblTrabajadores.Name = "lblTrabajadores";
+            this.lblTrabajadores.Size = new System.Drawing.Size(101, 23);
+            this.lblTrabajadores.TabIndex = 22;
+            this.lblTrabajadores.Text = "Entrega";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(493, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(114, 23);
+            this.label1.TabIndex = 23;
+            this.label1.Text = "Exportar";
+            // 
             // entrega
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(763, 450);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblTrabajadores);
+            this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnExportar);
             this.Controls.Add(this.PesTotExp);
             this.Controls.Add(this.IdMarExp);
@@ -276,5 +312,8 @@
         private TextBox IdMarExp;
         private TextBox PesTotExp;
         private Button btnExportar;
+        private Button btnSalir;
+        private Label lblTrabajadores;
+        private Label label1;
     }
 }

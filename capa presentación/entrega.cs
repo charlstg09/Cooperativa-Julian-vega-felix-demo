@@ -202,5 +202,14 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
         {
 
         }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Principal prin = new Principal();
+
+            prin.Show();
+
+            this.Hide();
+        }
     }
 } 

@@ -38,6 +38,7 @@
             this.txtId = new System.Windows.Forms.TextBox();
             this.btnPersonal = new System.Windows.Forms.Button();
             this.btnproovedores = new System.Windows.Forms.Button();
+            this.btnsalir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,6 +85,7 @@
             this.chkDia.TabIndex = 13;
             this.chkDia.Text = "Hoy";
             this.chkDia.UseVisualStyleBackColor = true;
+            this.chkDia.CheckedChanged += new System.EventHandler(this.chkDia_CheckedChanged);
             // 
             // chkId
             // 
@@ -107,6 +109,7 @@
             this.chkTIpoMarisco.TabIndex = 15;
             this.chkTIpoMarisco.Text = "Mariscos";
             this.chkTIpoMarisco.UseVisualStyleBackColor = true;
+            this.chkTIpoMarisco.CheckedChanged += new System.EventHandler(this.chkTIpoMarisco_CheckedChanged);
             // 
             // lblId
             // 
@@ -124,6 +127,7 @@
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(101, 27);
             this.txtId.TabIndex = 17;
+            this.txtId.TextChanged += new System.EventHandler(this.txtId_TextChanged);
             // 
             // btnPersonal
             // 
@@ -145,11 +149,23 @@
             this.btnproovedores.UseVisualStyleBackColor = true;
             this.btnproovedores.Click += new System.EventHandler(this.btnproovedores_Click);
             // 
+            // btnsalir
+            // 
+            this.btnsalir.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnsalir.Location = new System.Drawing.Point(1121, 16);
+            this.btnsalir.Name = "btnsalir";
+            this.btnsalir.Size = new System.Drawing.Size(113, 55);
+            this.btnsalir.TabIndex = 33;
+            this.btnsalir.Text = "Salir";
+            this.btnsalir.UseVisualStyleBackColor = true;
+            this.btnsalir.Click += new System.EventHandler(this.btnsalir_Click);
+            // 
             // historial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1234, 497);
+            this.Controls.Add(this.btnsalir);
             this.Controls.Add(this.btnproovedores);
             this.Controls.Add(this.btnPersonal);
             this.Controls.Add(this.txtId);
@@ -181,5 +197,6 @@
         private TextBox txtId;
         private Button btnPersonal;
         private Button btnproovedores;
+        private Button btnsalir;
     }
 }

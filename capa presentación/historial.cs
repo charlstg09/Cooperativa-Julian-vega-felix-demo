@@ -99,15 +99,31 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            var query = dt.Set<Entrega>();
             
-            if (chkDia.Checked)
-            {
-                query = query.Where(e => e.FecEnt.Date == DateTime.Today.Date);
-            }
-            dataGridView1.DataSource = query.ToList();
-            configurarDataGridView();
         }
 
+        private void txtId_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chkDia_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chkTIpoMarisco_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnsalir_Click(object sender, EventArgs e)
+        {
+            Principal prin = new Principal();
+
+            prin.Show();
+
+            this.Hide();
+        }
     }
 }

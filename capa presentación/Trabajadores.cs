@@ -449,5 +449,23 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
                 btnAgregarPersonal.Focus();
             }
         }
+
+        private void btnsalir_Click(object sender, EventArgs e)
+        {
+            Principal prin = new Principal();
+
+            prin.Show();
+
+            this.Hide();
+        }
+
+        private void btnEliminarPersnonal_Click(object sender, EventArgs e)
+        {
+            eliminarPersonalId personal = new eliminarPersonalId();
+
+            personal.ShowDialog();
+
+            this.Hide();
+        }
     }
 }

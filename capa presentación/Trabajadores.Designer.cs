@@ -59,6 +59,8 @@
             this.lblNombrePersonal = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.lblTipo = new System.Windows.Forms.Label();
+            this.btnsalir = new System.Windows.Forms.Button();
+            this.btnEliminarPersnonal = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -191,14 +193,13 @@
             // bntEliminar
             // 
             this.bntEliminar.BackColor = System.Drawing.Color.Red;
-            this.bntEliminar.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.bntEliminar.Font = new System.Drawing.Font("Sitka Banner", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.bntEliminar.Font = new System.Drawing.Font("Sitka Banner", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.bntEliminar.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.bntEliminar.Location = new System.Drawing.Point(0, 512);
+            this.bntEliminar.Location = new System.Drawing.Point(78, 380);
             this.bntEliminar.Name = "bntEliminar";
-            this.bntEliminar.Size = new System.Drawing.Size(661, 49);
+            this.bntEliminar.Size = new System.Drawing.Size(146, 49);
             this.bntEliminar.TabIndex = 12;
-            this.bntEliminar.Text = "Eliminar";
+            this.bntEliminar.Text = "Eliminar Proovedores";
             this.bntEliminar.UseVisualStyleBackColor = false;
             this.bntEliminar.Click += new System.EventHandler(this.bntEliminar_Click);
             // 
@@ -379,11 +380,37 @@
             this.lblTipo.TabIndex = 31;
             this.lblTipo.Text = "Tipo Personal:";
             // 
+            // btnsalir
+            // 
+            this.btnsalir.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnsalir.Location = new System.Drawing.Point(0, 506);
+            this.btnsalir.Name = "btnsalir";
+            this.btnsalir.Size = new System.Drawing.Size(113, 55);
+            this.btnsalir.TabIndex = 32;
+            this.btnsalir.Text = "Salir";
+            this.btnsalir.UseVisualStyleBackColor = true;
+            this.btnsalir.Click += new System.EventHandler(this.btnsalir_Click);
+            // 
+            // btnEliminarPersnonal
+            // 
+            this.btnEliminarPersnonal.BackColor = System.Drawing.Color.Red;
+            this.btnEliminarPersnonal.Font = new System.Drawing.Font("Sitka Banner", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnEliminarPersnonal.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnEliminarPersnonal.Location = new System.Drawing.Point(342, 414);
+            this.btnEliminarPersnonal.Name = "btnEliminarPersnonal";
+            this.btnEliminarPersnonal.Size = new System.Drawing.Size(146, 49);
+            this.btnEliminarPersnonal.TabIndex = 33;
+            this.btnEliminarPersnonal.Text = "Eliminar Personal";
+            this.btnEliminarPersnonal.UseVisualStyleBackColor = false;
+            this.btnEliminarPersnonal.Click += new System.EventHandler(this.btnEliminarPersnonal_Click);
+            // 
             // bntpersonal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1282, 561);
+            this.Controls.Add(this.btnEliminarPersnonal);
+            this.Controls.Add(this.btnsalir);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.lblTipo);
             this.Controls.Add(this.btnAgregarPersonal);
@@ -457,5 +484,7 @@
         private Label lblNombrePersonal;
         private ComboBox comboBox1;
         private Label lblTipo;
+        private Button btnsalir;
+        private Button btnEliminarPersnonal;
     }
 }
