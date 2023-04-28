@@ -211,5 +211,33 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
             this.Hide();
         }
+
+        private void idCom_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void IdMarExp_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void PesTotExp_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '.' && PesTotExp.Text.IndexOf('.') > -1)
+            {
+                e.Handled = true;
+            }
+            else if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+        }
     }
 } 

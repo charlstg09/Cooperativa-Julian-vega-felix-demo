@@ -200,6 +200,7 @@
             this.idCom.Size = new System.Drawing.Size(151, 30);
             this.idCom.TabIndex = 17;
             this.idCom.TextChanged += new System.EventHandler(this.idCom_TextChanged);
+            this.idCom.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.idCom_KeyPress);
             // 
             // IdMarExp
             // 
@@ -207,6 +208,7 @@
             this.IdMarExp.Name = "IdMarExp";
             this.IdMarExp.Size = new System.Drawing.Size(151, 30);
             this.IdMarExp.TabIndex = 18;
+            this.IdMarExp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IdMarExp_KeyPress);
             // 
             // PesTotExp
             // 
@@ -214,6 +216,7 @@
             this.PesTotExp.Name = "PesTotExp";
             this.PesTotExp.Size = new System.Drawing.Size(151, 30);
             this.PesTotExp.TabIndex = 19;
+            this.PesTotExp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PesTotExp_KeyPress);
             // 
             // btnExportar
             // 

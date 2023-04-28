@@ -39,9 +39,9 @@
             this.lblTrabajador.Font = new System.Drawing.Font("SimSun", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblTrabajador.Location = new System.Drawing.Point(114, 68);
             this.lblTrabajador.Name = "lblTrabajador";
-            this.lblTrabajador.Size = new System.Drawing.Size(288, 18);
+            this.lblTrabajador.Size = new System.Drawing.Size(268, 18);
             this.lblTrabajador.TabIndex = 0;
-            this.lblTrabajador.Text = "Ingresa el ID del trabajador";
+            this.lblTrabajador.Text = "Ingresa el ID del Personal";
             // 
             // txtIdTtabajador
             // 
