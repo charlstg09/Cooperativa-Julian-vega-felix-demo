@@ -13,7 +13,7 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 {
     public partial class eliminarPersonalId : Form
     {
-        PruebaContext dt;
+        PruebaContext dt = new PruebaContext();
         public event EventHandler PersonalEliminado;
         public eliminarPersonalId()
         {
@@ -69,12 +69,24 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
         private void txtIdPersonal_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (e.KeyChar == 13)
+            {
+                e.Handled = true;
+
+                btnEliminarPersonal.Focus();
+            }
+            
             // Validar si el carácter ingresado es un número
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b')
             {
                 // Si no es un número ni una tecla de retroceso, cancelar el evento
                 e.Handled = true;
             }
+        }
+
+        private void eliminarPersonalId_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

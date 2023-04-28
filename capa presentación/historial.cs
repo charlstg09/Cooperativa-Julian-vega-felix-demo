@@ -16,7 +16,7 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 {
     public partial class historial : Form
     {
-        PruebaContext dt;
+        PruebaContext dt = new PruebaContext();
         public historial()
         {
             InitializeComponent();
@@ -25,19 +25,7 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
         private void chkId_CheckedChanged(object sender, EventArgs e)
         {
-            chkId.Checked = false;
-            if (chkId.Checked)
-            {
-                txtId.Visible = true;
-
-                lblId.Visible = true;
-            }
-            else
-            {
-                txtId.Visible = false;
-
-                lblId.Visible = false;
-            }
+           
         }
 
         private void historial_Load(object sender, EventArgs e)
@@ -99,7 +87,71 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            
+
+            string idPersonalTexto = txtIdProovedor.Text;
+            if (string.IsNullOrEmpty(idPersonalTexto))
+            {
+                // Obtener el valor seleccionado en el ComboBox
+                string mariscoSeleccionado = cmbTipoMarisco.SelectedItem.ToString();
+
+                // Obtener el ID del marisco seleccionado en la base de datos
+                int idMarisco = 0;
+                switch (mariscoSeleccionado)
+                {
+                    case "pescado":
+                        idMarisco = 1;
+                        break;
+                    case "jaiba":
+                        idMarisco = 2;
+                        break;
+                    case "camaron":
+                        idMarisco = 3;
+                        break;
+                }
+
+                // Consultar si hay entregas con el marisco seleccionado
+                var entregas = dt.Entregas
+                    .Where(p => p.IdMar == idMarisco)
+                    .ToList();
+
+                if (entregas.Count == 0)
+                {
+                    // Si no hay entregas con el marisco seleccionado, mostrar un mensaje
+                    MessageBox.Show("No hay entregas de: " + mariscoSeleccionado);
+                }
+                else
+                {
+                    // Si hay entregas con el marisco seleccionado, ordenar y mostrar en el DataGridView
+                    entregas = entregas.OrderBy(p => p.FecEnt).ToList(); // Ordenar por fecha de entrega
+                    dataGridView1.DataSource = entregas;
+                    dataGridView1.Refresh();
+                }
+            }
+            else
+            {
+                int idProovedor;
+                if (int.TryParse(txtIdProovedor.Text, out idProovedor))
+                {
+                    using (var context = new PruebaContext())
+                    {
+                        var entregas = context.Entregas.Where(e => e.IdTra == idProovedor).ToList();
+                        if (entregas.Count > 0)
+                        {
+                            // Si hay entregas con el idProovedor ingresado, ordenar el datagridview
+                            dataGridView1.DataSource = entregas.OrderBy(e => e.FecEnt).ToList();
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se encontraron entregas con el idProovedor ingresado.");
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("El valor ingresado no es un número válido.");
+                }
+
+            }
         }
 
         private void txtId_TextChanged(object sender, EventArgs e)
@@ -109,7 +161,7 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
         private void chkDia_CheckedChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void chkTIpoMarisco_CheckedChanged(object sender, EventArgs e)
@@ -124,6 +176,127 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
             prin.Show();
 
             this.Hide();
+        }
+
+        private void btnhoyPersonal_Click(object sender, EventArgs e)
+        {
+            DateTime fechaActual = DateTime.Today;
+
+            // Obtener las entregas de hoy
+            var entregas = dt.Entregas
+                .Where(p => p.FecEnt == fechaActual)
+                .ToList();
+
+            // Asignar los datos al DataGridView
+            dataGridView1.DataSource = entregas;
+
+            // Actualizar la vista del DataGridView
+           dataGridView1.Refresh();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DateTime fechaActual = DateTime.Today;
+
+            // Obtener las entregas de hoy
+            var export = dt.Exportars
+                .Where(p => p.FecExp == fechaActual)
+                .ToList();
+
+            // Asignar los datos al DataGridView
+            dataGridView1.DataSource = export;
+
+            // Actualizar la vista del DataGridView
+            dataGridView1.Refresh();
+        }
+
+        private void cmbTipoMarisco_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void txtIdProovedor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string idCompañiaTexto = txtCompañia.Text;
+            if (string.IsNullOrEmpty(idCompañiaTexto))
+            {
+                // Obtener el valor seleccionado en el ComboBox
+                string mariscoSeleccionado = cmbMariscoExportar.SelectedItem.ToString();
+
+                // Obtener el ID del marisco seleccionado en la base de datos
+                int idMarisco = 0;
+                switch (mariscoSeleccionado)
+                {
+                    case "pescado":
+                        idMarisco = 1;
+                        break;
+                    case "jaiba":
+                        idMarisco = 2;
+                        break;
+                    case "camaron":
+                        idMarisco = 3;
+                        break;
+                }
+
+                // Consultar si hay entregas con el marisco seleccionado
+                var Exportar = dt.Exportars
+                    .Where(p => p.IdMar == idMarisco)
+                    .ToList();
+
+                if (Exportar.Count == 0)
+                {
+                    // Si no hay entregas con el marisco seleccionado, mostrar un mensaje
+                    MessageBox.Show("No hay entregas de: " + mariscoSeleccionado);
+                }
+                else
+                {
+                    // Si hay entregas con el marisco seleccionado, ordenar y mostrar en el DataGridView
+                    Exportar = Exportar.OrderBy(p => p.FecExp).ToList(); // Ordenar por fecha de entrega
+                    dataGridView1.DataSource = Exportar;
+                    dataGridView1.Refresh();
+                }
+            }
+            else
+            {
+                int idExport;
+                if (int.TryParse(txtCompañia.Text, out idExport))
+                {
+                    using (var context = new PruebaContext())
+                    {
+                        var entregas = context.Exportars.Where(e => e.IdCom == idExport).ToList();
+                        if (entregas.Count > 0)
+                        {
+                            // Si hay entregas con el idProovedor ingresado, ordenar el datagridview
+                            dataGridView1.DataSource = entregas.OrderBy(e => e.FecExp).ToList();
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se encontraron entregas con el idProovedor ingresado.");
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("El valor ingresado no es un número válido.");
+                }
+
+            }
         }
     }
 }

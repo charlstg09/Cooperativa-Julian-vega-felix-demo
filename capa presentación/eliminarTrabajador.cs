@@ -14,7 +14,7 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 {
     public partial class eliminarTrabajador : Form
     {
-        private PruebaContext dt; // Crear una instancia de PruebaContext como campo de clase
+        private PruebaContext dt = new PruebaContext(); // Crear una instancia de PruebaContext como campo de clase
         public event EventHandler TrabajadorEliminado;
         public eliminarTrabajador()
         {
@@ -29,6 +29,12 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
         private void txtIdTtabajador_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (e.KeyChar == 13)
+            {
+                e.Handled = true;
+                bntEliminar.Focus();
+            }
+            
             // Validar si el carácter ingresado es un número
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b')
             {

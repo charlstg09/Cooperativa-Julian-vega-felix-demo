@@ -15,7 +15,7 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
    
     public partial class entrega : Form
     {
-        PruebaContext dt;
+        PruebaContext dt = new PruebaContext();
         public entrega()
         {
             InitializeComponent();
@@ -116,7 +116,7 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
         private void entrega_Load(object sender, EventArgs e)
         {
-            dt = new PruebaContext();
+           
 
             
 

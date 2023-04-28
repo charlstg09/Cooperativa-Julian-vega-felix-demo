@@ -1,6 +1,6 @@
 ﻿namespace Cooperativa_Julian_vega_felix.capa_presentación
 {
-    partial class eliminarPersonalId
+    partial class EliminarCompañia
     {
         /// <summary>
         /// Required designer variable.
@@ -28,29 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.txtIdCompañia = new System.Windows.Forms.TextBox();
             this.lblTrabajador = new System.Windows.Forms.Label();
-            this.txtIdPersonal = new System.Windows.Forms.TextBox();
             this.btnEliminarPersonal = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // txtIdCompañia
+            // 
+            this.txtIdCompañia.Location = new System.Drawing.Point(271, 77);
+            this.txtIdCompañia.Name = "txtIdCompañia";
+            this.txtIdCompañia.Size = new System.Drawing.Size(261, 27);
+            this.txtIdCompañia.TabIndex = 4;
+            this.txtIdCompañia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIdPersonal_KeyPress);
             // 
             // lblTrabajador
             // 
             this.lblTrabajador.AutoSize = true;
             this.lblTrabajador.Font = new System.Drawing.Font("SimSun", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblTrabajador.Location = new System.Drawing.Point(256, 66);
+            this.lblTrabajador.Location = new System.Drawing.Point(256, 46);
             this.lblTrabajador.Name = "lblTrabajador";
             this.lblTrabajador.Size = new System.Drawing.Size(288, 18);
-            this.lblTrabajador.TabIndex = 1;
-            this.lblTrabajador.Text = "Ingresa el ID del trabajador";
-            // 
-            // txtIdPersonal
-            // 
-            this.txtIdPersonal.Location = new System.Drawing.Point(271, 97);
-            this.txtIdPersonal.Name = "txtIdPersonal";
-            this.txtIdPersonal.Size = new System.Drawing.Size(261, 27);
-            this.txtIdPersonal.TabIndex = 2;
-            this.txtIdPersonal.TextChanged += new System.EventHandler(this.txtIdPersonal_TextChanged);
-            this.txtIdPersonal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIdPersonal_KeyPress);
+            this.lblTrabajador.TabIndex = 3;
+            this.lblTrabajador.Text = "Ingresa el ID de la Compañia";
             // 
             // btnEliminarPersonal
             // 
@@ -58,25 +57,24 @@
             this.btnEliminarPersonal.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnEliminarPersonal.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnEliminarPersonal.ForeColor = System.Drawing.Color.White;
-            this.btnEliminarPersonal.Location = new System.Drawing.Point(0, 161);
+            this.btnEliminarPersonal.Location = new System.Drawing.Point(0, 164);
             this.btnEliminarPersonal.Name = "btnEliminarPersonal";
             this.btnEliminarPersonal.Size = new System.Drawing.Size(800, 51);
-            this.btnEliminarPersonal.TabIndex = 3;
+            this.btnEliminarPersonal.TabIndex = 5;
             this.btnEliminarPersonal.Text = "Eliminar Personal";
             this.btnEliminarPersonal.UseVisualStyleBackColor = false;
             this.btnEliminarPersonal.Click += new System.EventHandler(this.btnEliminarPersonal_Click);
             // 
-            // eliminarPersonalId
+            // EliminarCompañia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 212);
+            this.ClientSize = new System.Drawing.Size(800, 215);
             this.Controls.Add(this.btnEliminarPersonal);
-            this.Controls.Add(this.txtIdPersonal);
+            this.Controls.Add(this.txtIdCompañia);
             this.Controls.Add(this.lblTrabajador);
-            this.Name = "eliminarPersonalId";
-            this.Text = "eliminarPersonalId";
-            this.Load += new System.EventHandler(this.eliminarPersonalId_Load);
+            this.Name = "EliminarCompañia";
+            this.Text = "EliminarCompañia";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -84,8 +82,8 @@
 
         #endregion
 
+        private TextBox txtIdCompañia;
         private Label lblTrabajador;
-        private TextBox txtIdPersonal;
         private Button btnEliminarPersonal;
     }
 }

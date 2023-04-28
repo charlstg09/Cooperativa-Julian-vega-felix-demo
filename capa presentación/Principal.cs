@@ -53,5 +53,13 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
             this.Hide();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Compañias comp = new Compañias();
+
+            comp.Show();
+            this.Hide();
+        }
     }
 }

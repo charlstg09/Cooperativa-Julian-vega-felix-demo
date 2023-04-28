@@ -169,7 +169,7 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
         private void btnprovedor_Click(object sender, EventArgs e)
         {
-            OcultarPesonal();
+            //OcultarPesonal();
             
 
             //ocultar labels
@@ -232,7 +232,7 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
         {
 
 
-            OcultarProovedores();
+           // OcultarProovedores();
 
 
             RefrescarPersonal();
@@ -465,7 +465,7 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
             personal.ShowDialog();
 
-            this.Hide();
+            
         }
     }
 }
