@@ -55,9 +55,10 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
         }
 
-        public void cambio()
+        public void ConfigurarTablaProovedor()
         {
-            // Cambiar el nombre de las columnas en un DataGridView por índice de columna
+
+            configurarDataGridView();
             dataGridView1.Columns[0].HeaderText = "ID Entrega";
             dataGridView1.Columns[1].HeaderText = "ID Mariscos";
             dataGridView1.Columns[2].HeaderText = "ID Empleado";
@@ -69,30 +70,58 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
         {
             refrescar();
 
-            cambio();
+            ConfigurarTablaProovedor();
+        }
+
+        public void ConfigurarTablaExportar()
+        {
+            dataGridView1.Columns[0].HeaderText = "ID Exporte";
+            dataGridView1.Columns[1].HeaderText = "ID Compañia";
+            dataGridView1.Columns[2].HeaderText = "ID Marisco";
+            dataGridView1.Columns[4].HeaderText = "Fecha";
+            dataGridView1.Columns[3].HeaderText = "Peso Total";
         }
 
         private void btnproovedores_Click(object sender, EventArgs e)
         {
             var query = dt.Exportars.ToList();
             dataGridView1.DataSource = query;
-            configurarDataGridView();
+            
 
-            dataGridView1.Columns[0].HeaderText = "ID Exporte";
-            dataGridView1.Columns[1].HeaderText = "ID Compañia";
-            dataGridView1.Columns[2].HeaderText = "ID Marisco";
-            dataGridView1.Columns[3].HeaderText = "Fecha";
-            dataGridView1.Columns[4].HeaderText = "Peso Total";
+            
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-
-            string idPersonalTexto = txtIdProovedor.Text;
-            if (string.IsNullOrEmpty(idPersonalTexto))
+            string idCompañiaTexto = txtCompañia.Text;
+            if (!string.IsNullOrEmpty(idCompañiaTexto))
+            {
+                int idExport;
+                if (int.TryParse(idCompañiaTexto, out idExport))
+                {
+                    using (var context = new PruebaContext())
+                    {
+                        var exportaciones = context.Exportars.Where(e => e.IdCom == idExport).ToList();
+                        if (exportaciones.Count > 0)
+                        {
+                            // Si hay exportaciones con el idCompañia ingresado, ordenar el datagridview
+                            dataGridView1.DataSource = exportaciones.OrderBy(e => e.FecExp).ToList();
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se encontraron exportaciones con el idCompañia ingresado.");
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("El valor ingresado no es un número válido.");
+                }
+            }
+            else if (cmbMariscoExportar.SelectedIndex >= 0)
             {
                 // Obtener el valor seleccionado en el ComboBox
-                string mariscoSeleccionado = cmbTipoMarisco.SelectedItem.ToString();
+                string mariscoSeleccionado = cmbMariscoExportar.SelectedItem.ToString();
 
                 // Obtener el ID del marisco seleccionado en la base de datos
                 int idMarisco = 0;
@@ -109,49 +138,29 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
                         break;
                 }
 
-                // Consultar si hay entregas con el marisco seleccionado
-                var entregas = dt.Entregas
-                    .Where(p => p.IdMar == idMarisco)
-                    .ToList();
+                // Consultar si hay exportaciones con el marisco seleccionado
+                var exportaciones = dt.Exportars.Where(p => p.IdMar == idMarisco).ToList();
 
-                if (entregas.Count == 0)
+                if (exportaciones.Count == 0)
                 {
-                    // Si no hay entregas con el marisco seleccionado, mostrar un mensaje
-                    MessageBox.Show("No hay entregas de: " + mariscoSeleccionado);
+                    // Si no hay exportaciones con el marisco seleccionado, mostrar un mensaje
+                    MessageBox.Show("No hay exportaciones de: " + mariscoSeleccionado);
                 }
                 else
                 {
-                    // Si hay entregas con el marisco seleccionado, ordenar y mostrar en el DataGridView
-                    entregas = entregas.OrderBy(p => p.FecEnt).ToList(); // Ordenar por fecha de entrega
-                    dataGridView1.DataSource = entregas;
+                    // Si hay exportaciones con el marisco seleccionado, ordenar y mostrar en el DataGridView
+                    exportaciones = exportaciones.OrderBy(p => p.FecExp).ToList(); // Ordenar por fecha de entrega
+                    dataGridView1.DataSource = exportaciones;
                     dataGridView1.Refresh();
                 }
             }
             else
             {
-                int idProovedor;
-                if (int.TryParse(txtIdProovedor.Text, out idProovedor))
-                {
-                    using (var context = new PruebaContext())
-                    {
-                        var entregas = context.Entregas.Where(e => e.IdTra == idProovedor).ToList();
-                        if (entregas.Count > 0)
-                        {
-                            // Si hay entregas con el idProovedor ingresado, ordenar el datagridview
-                            dataGridView1.DataSource = entregas.OrderBy(e => e.FecEnt).ToList();
-                        }
-                        else
-                        {
-                            MessageBox.Show("No se encontraron entregas con el idProovedor ingresado.");
-                        }
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("El valor ingresado no es un número válido.");
-                }
-
+                // Si no hay nada seleccionado, mostrar un mensaje
+                MessageBox.Show("Seleccione un marisco o ingrese un Id de compañía");
             }
+            ConfigurarTablaProovedor();
+
         }
 
         private void txtId_TextChanged(object sender, EventArgs e)
@@ -192,6 +201,7 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
             // Actualizar la vista del DataGridView
            dataGridView1.Refresh();
+            ConfigurarTablaProovedor();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -208,6 +218,8 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
             // Actualizar la vista del DataGridView
             dataGridView1.Refresh();
+
+            ConfigurarTablaExportar();
         }
 
         private void cmbTipoMarisco_SelectedIndexChanged(object sender, EventArgs e)
@@ -234,7 +246,31 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
         private void button1_Click(object sender, EventArgs e)
         {
             string idCompañiaTexto = txtCompañia.Text;
-            if (string.IsNullOrEmpty(idCompañiaTexto))
+            if (!string.IsNullOrEmpty(idCompañiaTexto))
+            {
+                int idExport;
+                if (int.TryParse(idCompañiaTexto, out idExport))
+                {
+                    using (var context = new PruebaContext())
+                    {
+                        var exportaciones = context.Exportars.Where(e => e.IdCom == idExport).ToList();
+                        if (exportaciones.Count > 0)
+                        {
+                            // Si hay exportaciones con el idCompañia ingresado, ordenar el datagridview
+                            dataGridView1.DataSource = exportaciones.OrderBy(e => e.FecExp).ToList();
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se encontraron exportaciones con el idCompañia ingresado.");
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("El valor ingresado no es un número válido.");
+                }
+            }
+            else if (cmbMariscoExportar.SelectedIndex >= 0)
             {
                 // Obtener el valor seleccionado en el ComboBox
                 string mariscoSeleccionado = cmbMariscoExportar.SelectedItem.ToString();
@@ -254,49 +290,69 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
                         break;
                 }
 
-                // Consultar si hay entregas con el marisco seleccionado
-                var Exportar = dt.Exportars
-                    .Where(p => p.IdMar == idMarisco)
-                    .ToList();
+                // Consultar si hay exportaciones con el marisco seleccionado
+                var exportaciones = dt.Exportars.Where(p => p.IdMar == idMarisco).ToList();
 
-                if (Exportar.Count == 0)
+                if (exportaciones.Count == 0)
                 {
-                    // Si no hay entregas con el marisco seleccionado, mostrar un mensaje
-                    MessageBox.Show("No hay entregas de: " + mariscoSeleccionado);
+                    // Si no hay exportaciones con el marisco seleccionado, mostrar un mensaje
+                    MessageBox.Show("No hay exportaciones de: " + mariscoSeleccionado);
                 }
                 else
                 {
-                    // Si hay entregas con el marisco seleccionado, ordenar y mostrar en el DataGridView
-                    Exportar = Exportar.OrderBy(p => p.FecExp).ToList(); // Ordenar por fecha de entrega
-                    dataGridView1.DataSource = Exportar;
+                    // Si hay exportaciones con el marisco seleccionado, ordenar y mostrar en el DataGridView
+                    exportaciones = exportaciones.OrderBy(p => p.FecExp).ToList(); // Ordenar por fecha de entrega
+                    dataGridView1.DataSource = exportaciones;
                     dataGridView1.Refresh();
                 }
             }
             else
             {
-                int idExport;
-                if (int.TryParse(txtCompañia.Text, out idExport))
-                {
-                    using (var context = new PruebaContext())
-                    {
-                        var entregas = context.Exportars.Where(e => e.IdCom == idExport).ToList();
-                        if (entregas.Count > 0)
-                        {
-                            // Si hay entregas con el idProovedor ingresado, ordenar el datagridview
-                            dataGridView1.DataSource = entregas.OrderBy(e => e.FecExp).ToList();
-                        }
-                        else
-                        {
-                            MessageBox.Show("No se encontraron entregas con el idProovedor ingresado.");
-                        }
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("El valor ingresado no es un número válido.");
-                }
-
+                // Si no hay nada seleccionado, no hacer nada
+                MessageBox.Show("Seleccione un marisco o ingrese un Id de compañía");
             }
+            ConfigurarTablaExportar();
+
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DateTime fechaSeleccionada = dateTimePicker1.Value.Date;
+
+            // Obtener las entregas de la fecha seleccionada
+            var export = dt.Entregas
+                .Where(p => p.FecEnt == fechaSeleccionada)
+                .ToList();
+
+            // Asignar los datos al DataGridView
+            dataGridView1.DataSource = export;
+
+            // Actualizar la vista del DataGridView
+            dataGridView1.Refresh();
+
+            ConfigurarTablaProovedor();
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            DateTime fechaSeleccionada = dateTimePicker2.Value.Date;
+
+            // Obtener las entregas de la fecha seleccionada
+            var export = dt.Exportars
+                .Where(p => p.FecExp == fechaSeleccionada)
+                .ToList();
+
+            // Asignar los datos al DataGridView
+            dataGridView1.DataSource = export;
+
+            // Actualizar la vista del DataGridView
+            dataGridView1.Refresh();
+            ConfigurarTablaExportar();
+
+
+        }
+
+       
     }
 }

@@ -135,5 +135,10 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
             compa.ShowDialog();
         }
+
+        private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

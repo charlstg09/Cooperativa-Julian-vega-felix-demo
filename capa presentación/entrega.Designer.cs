@@ -50,17 +50,20 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.lblTrabajadores = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.cmbTipoMariscoExportar = new System.Windows.Forms.ComboBox();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblId
             // 
             this.lblId.AutoSize = true;
             this.lblId.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblId.Location = new System.Drawing.Point(115, 126);
+            this.lblId.Location = new System.Drawing.Point(91, 126);
             this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(92, 29);
+            this.lblId.Size = new System.Drawing.Size(113, 29);
             this.lblId.TabIndex = 2;
-            this.lblId.Text = "IdUsuario";
+            this.lblId.Text = "IdProovedor";
             // 
             // lblMarisco
             // 
@@ -94,6 +97,7 @@
             // 
             // cmbTipoMarisco
             // 
+            this.cmbTipoMarisco.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTipoMarisco.FormattingEnabled = true;
             this.cmbTipoMarisco.Items.AddRange(new object[] {
             "pescado",
@@ -177,7 +181,7 @@
             // 
             this.lblIdMarisco.AutoSize = true;
             this.lblIdMarisco.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblIdMarisco.Location = new System.Drawing.Point(379, 126);
+            this.lblIdMarisco.Location = new System.Drawing.Point(396, 126);
             this.lblIdMarisco.Name = "lblIdMarisco";
             this.lblIdMarisco.Size = new System.Drawing.Size(93, 29);
             this.lblIdMarisco.TabIndex = 15;
@@ -187,7 +191,7 @@
             // 
             this.lblPesoTotalProovedores.AutoSize = true;
             this.lblPesoTotalProovedores.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblPesoTotalProovedores.Location = new System.Drawing.Point(379, 179);
+            this.lblPesoTotalProovedores.Location = new System.Drawing.Point(394, 175);
             this.lblPesoTotalProovedores.Name = "lblPesoTotalProovedores";
             this.lblPesoTotalProovedores.Size = new System.Drawing.Size(95, 29);
             this.lblPesoTotalProovedores.TabIndex = 16;
@@ -204,10 +208,11 @@
             // 
             // IdMarExp
             // 
-            this.IdMarExp.Location = new System.Drawing.Point(495, 129);
+            this.IdMarExp.Location = new System.Drawing.Point(439, 331);
             this.IdMarExp.Name = "IdMarExp";
             this.IdMarExp.Size = new System.Drawing.Size(151, 30);
             this.IdMarExp.TabIndex = 18;
+            this.IdMarExp.Visible = false;
             this.IdMarExp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IdMarExp_KeyPress);
             // 
             // PesTotExp
@@ -220,7 +225,7 @@
             // 
             // btnExportar
             // 
-            this.btnExportar.Location = new System.Drawing.Point(485, 236);
+            this.btnExportar.Location = new System.Drawing.Point(485, 267);
             this.btnExportar.Name = "btnExportar";
             this.btnExportar.Size = new System.Drawing.Size(161, 29);
             this.btnExportar.TabIndex = 20;
@@ -258,11 +263,45 @@
             this.label1.TabIndex = 23;
             this.label1.Text = "Exportar";
             // 
+            // cmbTipoMariscoExportar
+            // 
+            this.cmbTipoMariscoExportar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTipoMariscoExportar.FormattingEnabled = true;
+            this.cmbTipoMariscoExportar.Items.AddRange(new object[] {
+            "pescado",
+            "jaiba",
+            "camaron"});
+            this.cmbTipoMariscoExportar.Location = new System.Drawing.Point(495, 131);
+            this.cmbTipoMariscoExportar.Name = "cmbTipoMariscoExportar";
+            this.cmbTipoMariscoExportar.Size = new System.Drawing.Size(151, 28);
+            this.cmbTipoMariscoExportar.TabIndex = 24;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.CalendarFont = new System.Drawing.Font("SimSun", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.dateTimePicker2.Location = new System.Drawing.Point(495, 214);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(148, 30);
+            this.dateTimePicker2.TabIndex = 26;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(431, 215);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(58, 29);
+            this.label2.TabIndex = 25;
+            this.label2.Text = "Fecha";
+            // 
             // entrega
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(763, 450);
+            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.cmbTipoMariscoExportar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblTrabajadores);
             this.Controls.Add(this.btnSalir);
@@ -318,5 +357,8 @@
         private Button btnSalir;
         private Label lblTrabajadores;
         private Label label1;
+        private ComboBox cmbTipoMariscoExportar;
+        private DateTimePicker dateTimePicker2;
+        private Label label2;
     }
 }

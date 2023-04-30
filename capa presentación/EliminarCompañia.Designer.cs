@@ -61,7 +61,7 @@
             this.btnEliminarPersonal.Name = "btnEliminarPersonal";
             this.btnEliminarPersonal.Size = new System.Drawing.Size(800, 51);
             this.btnEliminarPersonal.TabIndex = 5;
-            this.btnEliminarPersonal.Text = "Eliminar Personal";
+            this.btnEliminarPersonal.Text = "Eliminar Compañia";
             this.btnEliminarPersonal.UseVisualStyleBackColor = false;
             this.btnEliminarPersonal.Click += new System.EventHandler(this.btnEliminarPersonal_Click);
             // 

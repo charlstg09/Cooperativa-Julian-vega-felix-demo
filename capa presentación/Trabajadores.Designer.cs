@@ -275,6 +275,7 @@
             this.txtCurpPersonal.Name = "txtCurpPersonal";
             this.txtCurpPersonal.Size = new System.Drawing.Size(125, 27);
             this.txtCurpPersonal.TabIndex = 28;
+            this.txtCurpPersonal.TextChanged += new System.EventHandler(this.txtCurpPersonal_TextChanged);
             this.txtCurpPersonal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCurpPersonal_KeyPress);
             // 
             // txtRfcPersonal
@@ -283,6 +284,7 @@
             this.txtRfcPersonal.Name = "txtRfcPersonal";
             this.txtRfcPersonal.Size = new System.Drawing.Size(125, 27);
             this.txtRfcPersonal.TabIndex = 27;
+            this.txtRfcPersonal.TextChanged += new System.EventHandler(this.txtRfcPersonal_TextChanged);
             this.txtRfcPersonal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRfcPersonal_KeyPress);
             // 
             // txtTelefonoPersonal

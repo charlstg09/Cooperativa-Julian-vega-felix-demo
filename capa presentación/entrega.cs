@@ -23,8 +23,8 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-            
+            cmbTipoMarisco.DropDownStyle = ComboBoxStyle.DropDownList;
+
         }
 
         private void txtIdUsuario_TextChanged(object sender, EventArgs e)
@@ -82,6 +82,16 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
                     default:
                         // Asignar valor por defecto o manejar el caso de error
                         break;
+                }
+
+                int idTrabajador = int.Parse(txtIdUsuario.Text);
+                // Consultar el trabajador en la base de datos
+                Trabajadore trabajador = dt.Trabajadores.Find(idTrabajador);
+
+                if (trabajador == null)
+                {
+                    MessageBox.Show("No se encontró ningún trabajador con el ID especificado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
 
                 envio.IdMar = idMarisco;
@@ -174,13 +184,50 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
         private void btnExportar_Click_1(object sender, EventArgs e)
         {
 
-            if (idCom != null && !string.IsNullOrWhiteSpace(IdMarExp.Text) && !string.IsNullOrWhiteSpace(PesTotExp.Text))
+            if (idCom != null && !string.IsNullOrWhiteSpace(cmbTipoMariscoExportar.Text) && !string.IsNullOrWhiteSpace(PesTotExp.Text))
             {
                 Exportar export = new Exportar();
 
-                export.IdCom = int.Parse(idCom.Text);
-                export.IdMar = int.Parse(IdMarExp.Text);
+                int idCompa;
+                if (!int.TryParse(idCom.Text, out idCompa))
+                {
+                    MessageBox.Show("El valor del ID de la compañía no es válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
+
+                Compañium compa = dt.Compañia.Find(idCompa);
+
+                if (compa == null)
+                {
+                    MessageBox.Show($"No se encontró la Compañia con el ID {idCompa}.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                Entrega envio = new Entrega();
+
+                string mariscoSeleccionadoPersonal = cmbTipoMariscoExportar.Text.ToLower();
+                int idMariscoExportar = 0;
+
+                switch (mariscoSeleccionadoPersonal)
+                {
+                    case "pescado":
+                        idMariscoExportar = 1;
+                        break;
+                    case "jaiba":
+                        idMariscoExportar = 2;
+                        break;
+                    case "camaron":
+                        idMariscoExportar = 3;
+                        break;
+                    default:
+                        // Asignar valor por defecto o manejar el caso de error
+                        break;
+                }
+
+                export.IdCom = int.Parse(idCom.Text);
+                export.IdMar = idMariscoExportar;
+                export.FecExp = dateTimePicker2.Value;
                 export.PesTot = decimal.Parse(PesTotExp.Text);
 
                 dt.Exportars.Add(export);

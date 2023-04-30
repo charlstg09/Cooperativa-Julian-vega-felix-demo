@@ -411,11 +411,17 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
         private void txtTelefonoPersonal_TextChanged(object sender, EventArgs e)
         {
-
+            txtTelefonoPersonal.MaxLength = 10;
         }
 
         private void txtTelefonoPersonal_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b')
+            {
+                // Si no es un número ni una tecla de retroceso, cancelar el evento
+                e.Handled = true;
+            }
+
             if (e.KeyChar == 13)
             {
                 e.Handled = true;
@@ -425,6 +431,7 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
         private void txtRfcPersonal_KeyPress(object sender, KeyPressEventArgs e)
         {
+            e.KeyChar = char.ToUpper(e.KeyChar);
             if (e.KeyChar == 13)
             {
                 e.Handled = true;
@@ -434,6 +441,7 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
         private void txtCurpPersonal_KeyPress(object sender, KeyPressEventArgs e)
         {
+            e.KeyChar = char.ToUpper(e.KeyChar);
             if (e.KeyChar == 13)
             {
                 e.Handled = true;
@@ -466,6 +474,16 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
             personal.ShowDialog();
 
             
+        }
+
+        private void txtRfcPersonal_TextChanged(object sender, EventArgs e)
+        {
+            txtRfcPersonal.MaxLength = 13;
+        }
+
+        private void txtCurpPersonal_TextChanged(object sender, EventArgs e)
+        {
+            txtCurpPersonal.MaxLength = 18;
         }
     }
 }

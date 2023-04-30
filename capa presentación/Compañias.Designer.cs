@@ -75,7 +75,7 @@
             this.bntEliminar.Name = "bntEliminar";
             this.bntEliminar.Size = new System.Drawing.Size(146, 49);
             this.bntEliminar.TabIndex = 30;
-            this.bntEliminar.Text = "Eliminar Proovedores";
+            this.bntEliminar.Text = "Eliminar Compañia";
             this.bntEliminar.UseVisualStyleBackColor = false;
             this.bntEliminar.Click += new System.EventHandler(this.bntEliminar_Click);
             // 
@@ -98,6 +98,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(125, 27);
             this.txtEmail.TabIndex = 27;
+            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             this.txtEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEmail_KeyPress);
             // 
             // txtTelefono

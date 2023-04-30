@@ -27,11 +27,18 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
             {
                 e.Handled = true; // Rechazar el carácter
             }
+
+            if (e.KeyChar == 13)
+            {
+                e.Handled = true;
+                btnEliminarPersonal.Focus();
+            }
         }
 
         private void btnEliminarPersonal_Click(object sender, EventArgs e)
         {
             int idCompañia;
+
 
             if (!int.TryParse(txtIdCompañia.Text, out idCompañia))
             {
@@ -39,14 +46,15 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
                 return;
             }
 
+
             Compañium compa = dt.Compañia.Find(idCompañia);
 
-            if (idCompañia == null)
+            if (compa == null)
             {
                 MessageBox.Show("El Id De la Compañia No Se Encontro.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            DialogResult result = MessageBox.Show("¿Está seguro de que desea eliminar al trabajador con ID: " + txtIdCompañia + "?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show("¿Está seguro de que desea eliminar al trabajador con ID: " + idCompañia + "?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
             {
