@@ -37,6 +37,7 @@ namespace Cooperativa_Julian_vega_felix
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            btnLogin.FlatAppearance.BorderSize = 0;
             string usuario = txtusuario.Text;
             string contraseña = txtcontaseña.Text;
 

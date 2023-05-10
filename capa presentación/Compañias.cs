@@ -37,6 +37,11 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = true; // Indica que se ha manejado el evento y que no debe propagarse más
+            }
+
             if (e.KeyChar == 13)
             {
                 e.Handled = true;
@@ -47,6 +52,11 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
         private void txtEncargado_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = true; // Indica que se ha manejado el evento y que no debe propagarse más
+            }
+
             if (e.KeyChar == 13)
             {
                 e.Handled = true;
@@ -98,6 +108,7 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            txtNombre.Focus();
             if (string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrEmpty(txtEncargado.Text) || string.IsNullOrEmpty(txtTelefono.Text) || string.IsNullOrEmpty(txtEmail.Text))
             {
                 MessageBox.Show("Porfavor Rellene Los Campos Faltantes", "Campos Incompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -139,6 +150,11 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
         private void txtEmail_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnSalir_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

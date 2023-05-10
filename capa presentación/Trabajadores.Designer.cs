@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblApellido = new System.Windows.Forms.Label();
@@ -41,9 +44,6 @@
             this.txtCurp = new System.Windows.Forms.TextBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.bntEliminar = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.btnpersonal = new System.Windows.Forms.Button();
-            this.btnprovedor = new System.Windows.Forms.Button();
             this.lblTrabajadores = new System.Windows.Forms.Label();
             this.lblPersonal = new System.Windows.Forms.Label();
             this.btnAgregarPersonal = new System.Windows.Forms.Button();
@@ -59,21 +59,50 @@
             this.lblNombrePersonal = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.lblTipo = new System.Windows.Forms.Label();
-            this.btnsalir = new System.Windows.Forms.Button();
             this.btnEliminarPersnonal = new System.Windows.Forms.Button();
+            this.btnSalir = new CustomControls.RJControls.RJButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.rjButton1 = new CustomControls.RJControls.RJButton();
+            this.rjButton2 = new CustomControls.RJControls.RJButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DeepPink;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.dataGridView1.Location = new System.Drawing.Point(661, 0);
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.EnableHeadersVisualStyles = false;
+            this.dataGridView1.GridColor = System.Drawing.Color.MediumSlateBlue;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkOrchid;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.RowHeadersWidth = 51;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Indigo;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(621, 561);
+            this.dataGridView1.Size = new System.Drawing.Size(710, 619);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -81,6 +110,7 @@
             // 
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblNombre.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblNombre.Location = new System.Drawing.Point(11, 80);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(85, 29);
@@ -92,6 +122,7 @@
             // 
             this.lblApellido.AutoSize = true;
             this.lblApellido.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblApellido.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblApellido.Location = new System.Drawing.Point(11, 125);
             this.lblApellido.Name = "lblApellido";
             this.lblApellido.Size = new System.Drawing.Size(84, 29);
@@ -103,6 +134,7 @@
             // 
             this.lblTelefono.AutoSize = true;
             this.lblTelefono.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblTelefono.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblTelefono.Location = new System.Drawing.Point(11, 182);
             this.lblTelefono.Name = "lblTelefono";
             this.lblTelefono.Size = new System.Drawing.Size(89, 29);
@@ -114,6 +146,7 @@
             // 
             this.lblRFC.AutoSize = true;
             this.lblRFC.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblRFC.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblRFC.Location = new System.Drawing.Point(43, 242);
             this.lblRFC.Name = "lblRFC";
             this.lblRFC.Size = new System.Drawing.Size(52, 29);
@@ -125,6 +158,7 @@
             // 
             this.lblCurp.AutoSize = true;
             this.lblCurp.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblCurp.ForeColor = System.Drawing.SystemColors.Control;
             this.lblCurp.Location = new System.Drawing.Point(30, 300);
             this.lblCurp.Name = "lblCurp";
             this.lblCurp.Size = new System.Drawing.Size(65, 29);
@@ -190,6 +224,7 @@
             this.btnAgregar.Text = "Agregar ";
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            this.btnAgregar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btnAgregar_KeyPress);
             // 
             // bntEliminar
             // 
@@ -204,41 +239,11 @@
             this.bntEliminar.UseVisualStyleBackColor = false;
             this.bntEliminar.Click += new System.EventHandler(this.bntEliminar_Click);
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(171, 451);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(8, 12);
-            this.button2.TabIndex = 13;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // btnpersonal
-            // 
-            this.btnpersonal.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnpersonal.Location = new System.Drawing.Point(342, 7);
-            this.btnpersonal.Name = "btnpersonal";
-            this.btnpersonal.Size = new System.Drawing.Size(113, 29);
-            this.btnpersonal.TabIndex = 15;
-            this.btnpersonal.Text = "Personal";
-            this.btnpersonal.UseVisualStyleBackColor = true;
-            this.btnpersonal.Click += new System.EventHandler(this.btnpersonal_Click);
-            // 
-            // btnprovedor
-            // 
-            this.btnprovedor.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnprovedor.Location = new System.Drawing.Point(95, 7);
-            this.btnprovedor.Name = "btnprovedor";
-            this.btnprovedor.Size = new System.Drawing.Size(115, 29);
-            this.btnprovedor.TabIndex = 16;
-            this.btnprovedor.Text = "proovedores";
-            this.btnprovedor.UseVisualStyleBackColor = true;
-            this.btnprovedor.Click += new System.EventHandler(this.btnprovedor_Click);
-            // 
             // lblTrabajadores
             // 
             this.lblTrabajadores.AutoSize = true;
             this.lblTrabajadores.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblTrabajadores.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblTrabajadores.Location = new System.Drawing.Point(71, 48);
             this.lblTrabajadores.Name = "lblTrabajadores";
             this.lblTrabajadores.Size = new System.Drawing.Size(153, 23);
@@ -250,6 +255,7 @@
             // 
             this.lblPersonal.AutoSize = true;
             this.lblPersonal.Font = new System.Drawing.Font("SimSun", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblPersonal.ForeColor = System.Drawing.SystemColors.Control;
             this.lblPersonal.Location = new System.Drawing.Point(342, 48);
             this.lblPersonal.Name = "lblPersonal";
             this.lblPersonal.Size = new System.Drawing.Size(114, 23);
@@ -302,6 +308,7 @@
             this.txtApellidoPersonal.Name = "txtApellidoPersonal";
             this.txtApellidoPersonal.Size = new System.Drawing.Size(125, 27);
             this.txtApellidoPersonal.TabIndex = 25;
+            this.txtApellidoPersonal.TextChanged += new System.EventHandler(this.txtApellidoPersonal_TextChanged);
             this.txtApellidoPersonal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellidoPersonal_KeyPress);
             // 
             // txtNombrePersonal
@@ -316,6 +323,7 @@
             // 
             this.lblCurpPersonal.AutoSize = true;
             this.lblCurpPersonal.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblCurpPersonal.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblCurpPersonal.Location = new System.Drawing.Point(295, 304);
             this.lblCurpPersonal.Name = "lblCurpPersonal";
             this.lblCurpPersonal.Size = new System.Drawing.Size(65, 29);
@@ -326,6 +334,7 @@
             // 
             this.lblRFCPersonal.AutoSize = true;
             this.lblRFCPersonal.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblRFCPersonal.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblRFCPersonal.Location = new System.Drawing.Point(308, 246);
             this.lblRFCPersonal.Name = "lblRFCPersonal";
             this.lblRFCPersonal.Size = new System.Drawing.Size(52, 29);
@@ -336,6 +345,7 @@
             // 
             this.lblTelefonoPersonal.AutoSize = true;
             this.lblTelefonoPersonal.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblTelefonoPersonal.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblTelefonoPersonal.Location = new System.Drawing.Point(276, 186);
             this.lblTelefonoPersonal.Name = "lblTelefonoPersonal";
             this.lblTelefonoPersonal.Size = new System.Drawing.Size(89, 29);
@@ -346,6 +356,7 @@
             // 
             this.lblApellidoPersonal.AutoSize = true;
             this.lblApellidoPersonal.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblApellidoPersonal.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblApellidoPersonal.Location = new System.Drawing.Point(276, 129);
             this.lblApellidoPersonal.Name = "lblApellidoPersonal";
             this.lblApellidoPersonal.Size = new System.Drawing.Size(84, 29);
@@ -356,6 +367,7 @@
             // 
             this.lblNombrePersonal.AutoSize = true;
             this.lblNombrePersonal.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblNombrePersonal.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblNombrePersonal.Location = new System.Drawing.Point(276, 84);
             this.lblNombrePersonal.Name = "lblNombrePersonal";
             this.lblNombrePersonal.Size = new System.Drawing.Size(85, 29);
@@ -377,22 +389,12 @@
             // 
             this.lblTipo.AutoSize = true;
             this.lblTipo.Font = new System.Drawing.Font("Sitka Display", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblTipo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblTipo.Location = new System.Drawing.Point(235, 344);
             this.lblTipo.Name = "lblTipo";
             this.lblTipo.Size = new System.Drawing.Size(130, 29);
             this.lblTipo.TabIndex = 31;
             this.lblTipo.Text = "Tipo Personal:";
-            // 
-            // btnsalir
-            // 
-            this.btnsalir.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnsalir.Location = new System.Drawing.Point(0, 506);
-            this.btnsalir.Name = "btnsalir";
-            this.btnsalir.Size = new System.Drawing.Size(113, 55);
-            this.btnsalir.TabIndex = 32;
-            this.btnsalir.Text = "Salir";
-            this.btnsalir.UseVisualStyleBackColor = true;
-            this.btnsalir.Click += new System.EventHandler(this.btnsalir_Click);
             // 
             // btnEliminarPersnonal
             // 
@@ -407,13 +409,85 @@
             this.btnEliminarPersnonal.UseVisualStyleBackColor = false;
             this.btnEliminarPersnonal.Click += new System.EventHandler(this.btnEliminarPersnonal_Click);
             // 
+            // btnSalir
+            // 
+            this.btnSalir.BackColor = System.Drawing.Color.DeepPink;
+            this.btnSalir.BackgroundColor = System.Drawing.Color.DeepPink;
+            this.btnSalir.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnSalir.BorderRadius = 0;
+            this.btnSalir.BorderSize = 0;
+            this.btnSalir.FlatAppearance.BorderSize = 0;
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalir.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnSalir.ForeColor = System.Drawing.Color.White;
+            this.btnSalir.Location = new System.Drawing.Point(1, 563);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(188, 50);
+            this.btnSalir.TabIndex = 34;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.TextColor = System.Drawing.Color.White;
+            this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click_1);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel1.Location = new System.Drawing.Point(558, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(710, 619);
+            this.panel1.TabIndex = 35;
+            // 
+            // rjButton1
+            // 
+            this.rjButton1.BackColor = System.Drawing.Color.DarkViolet;
+            this.rjButton1.BackgroundColor = System.Drawing.Color.DarkViolet;
+            this.rjButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjButton1.BorderRadius = 0;
+            this.rjButton1.BorderSize = 0;
+            this.rjButton1.FlatAppearance.BorderSize = 0;
+            this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton1.ForeColor = System.Drawing.Color.White;
+            this.rjButton1.Location = new System.Drawing.Point(92, 12);
+            this.rjButton1.Name = "rjButton1";
+            this.rjButton1.Size = new System.Drawing.Size(129, 36);
+            this.rjButton1.TabIndex = 36;
+            this.rjButton1.Text = "Proovedores";
+            this.rjButton1.TextColor = System.Drawing.Color.White;
+            this.rjButton1.UseVisualStyleBackColor = false;
+            this.rjButton1.Click += new System.EventHandler(this.rjButton1_Click);
+            // 
+            // rjButton2
+            // 
+            this.rjButton2.BackColor = System.Drawing.Color.DarkViolet;
+            this.rjButton2.BackgroundColor = System.Drawing.Color.DarkViolet;
+            this.rjButton2.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjButton2.BorderRadius = 0;
+            this.rjButton2.BorderSize = 0;
+            this.rjButton2.FlatAppearance.BorderSize = 0;
+            this.rjButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton2.ForeColor = System.Drawing.Color.White;
+            this.rjButton2.Location = new System.Drawing.Point(342, 12);
+            this.rjButton2.Name = "rjButton2";
+            this.rjButton2.Size = new System.Drawing.Size(129, 36);
+            this.rjButton2.TabIndex = 37;
+            this.rjButton2.Text = "Personal";
+            this.rjButton2.TextColor = System.Drawing.Color.White;
+            this.rjButton2.UseVisualStyleBackColor = false;
+            this.rjButton2.Click += new System.EventHandler(this.rjButton2_Click);
+            // 
             // bntpersonal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1282, 561);
+            this.AutoSize = true;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
+            this.ClientSize = new System.Drawing.Size(1268, 619);
+            this.Controls.Add(this.rjButton2);
+            this.Controls.Add(this.rjButton1);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnEliminarPersnonal);
-            this.Controls.Add(this.btnsalir);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.lblTipo);
             this.Controls.Add(this.btnAgregarPersonal);
@@ -429,9 +503,6 @@
             this.Controls.Add(this.lblNombrePersonal);
             this.Controls.Add(this.lblPersonal);
             this.Controls.Add(this.lblTrabajadores);
-            this.Controls.Add(this.btnprovedor);
-            this.Controls.Add(this.btnpersonal);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.bntEliminar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.txtCurp);
@@ -444,11 +515,12 @@
             this.Controls.Add(this.lblTelefono);
             this.Controls.Add(this.lblApellido);
             this.Controls.Add(this.lblNombre);
-            this.Controls.Add(this.dataGridView1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "bntpersonal";
             this.Text = "personal";
             this.Load += new System.EventHandler(this.bntpersonal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -469,9 +541,6 @@
         private TextBox txtCurp;
         private Button btnAgregar;
         private Button bntEliminar;
-        private Button button2;
-        private Button btnpersonal;
-        private Button btnprovedor;
         private Label lblTrabajadores;
         private Label lblPersonal;
         private Button btnAgregarPersonal;
@@ -487,7 +556,10 @@
         private Label lblNombrePersonal;
         private ComboBox comboBox1;
         private Label lblTipo;
-        private Button btnsalir;
         private Button btnEliminarPersnonal;
+        private CustomControls.RJControls.RJButton btnSalir;
+        private Panel panel1;
+        private CustomControls.RJControls.RJButton rjButton1;
+        private CustomControls.RJControls.RJButton rjButton2;
     }
 }

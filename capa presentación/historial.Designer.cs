@@ -60,12 +60,12 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 152);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 174);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(1443, 398);
+            this.dataGridView1.Size = new System.Drawing.Size(1250, 398);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -113,9 +113,9 @@
             // btnsalir
             // 
             this.btnsalir.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnsalir.Location = new System.Drawing.Point(1330, 64);
+            this.btnsalir.Location = new System.Drawing.Point(1137, 66);
             this.btnsalir.Name = "btnsalir";
-            this.btnsalir.Size = new System.Drawing.Size(113, 40);
+            this.btnsalir.Size = new System.Drawing.Size(113, 30);
             this.btnsalir.TabIndex = 33;
             this.btnsalir.Text = "Salir";
             this.btnsalir.UseVisualStyleBackColor = true;
@@ -187,7 +187,7 @@
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(979, 36);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(250, 27);
+            this.dateTimePicker1.Size = new System.Drawing.Size(208, 27);
             this.dateTimePicker1.TabIndex = 41;
             // 
             // txtCompañia
@@ -235,7 +235,7 @@
             // 
             this.dateTimePicker2.Location = new System.Drawing.Point(979, 106);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(250, 27);
+            this.dateTimePicker2.Size = new System.Drawing.Size(208, 27);
             this.dateTimePicker2.TabIndex = 47;
             // 
             // label7
@@ -284,9 +284,9 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Segoe Print", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button3.Location = new System.Drawing.Point(1235, 31);
+            this.button3.Location = new System.Drawing.Point(1193, 31);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(149, 29);
+            this.button3.Size = new System.Drawing.Size(57, 29);
             this.button3.TabIndex = 51;
             this.button3.Text = "fecha";
             this.button3.UseVisualStyleBackColor = true;
@@ -295,9 +295,9 @@
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Segoe Print", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button4.Location = new System.Drawing.Point(1235, 105);
+            this.button4.Location = new System.Drawing.Point(1193, 102);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(149, 29);
+            this.button4.Size = new System.Drawing.Size(57, 29);
             this.button4.TabIndex = 52;
             this.button4.Text = "fecha";
             this.button4.UseVisualStyleBackColor = true;
@@ -307,7 +307,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1443, 550);
+            this.ClientSize = new System.Drawing.Size(1250, 572);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);

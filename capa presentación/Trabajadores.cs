@@ -3,6 +3,7 @@ using System;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Cooperativa_Julian_vega_felix.capa_presentación
 {
@@ -20,27 +21,59 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            txtNombre.Focus();
+            // Verifica si todos los campos están llenos
             if (string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrEmpty(txtApellido.Text) || string.IsNullOrEmpty(txtTelefono.Text) || string.IsNullOrEmpty(txtCurp.Text) || string.IsNullOrEmpty(txtRfc.Text))
             {
-                MessageBox.Show("Porfavor Rellene Los Campos Faltantes", "Campos Incompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Por favor rellene los campos faltantes", "Campos incompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                Trabajadore trabajador = new Trabajadore();
+                using (var dt = new PruebaContext())
+                {
+                    // Verifica si el número de teléfono ya está registrado
+                    if (dt.Trabajadores.Any(t => t.TelTra == txtTelefono.Text))
+                    {
+                        MessageBox.Show("El número de teléfono ya está registrado", "Registro duplicado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    // Verifica si el RFC ya está registrado
+                    else if (dt.Trabajadores.Any(t => t.Rfc == txtRfc.Text))
+                    {
+                        MessageBox.Show("El RFC ya está registrado", "Registro duplicado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    // Verifica si la CURP ya está registrada
+                    else if (dt.Trabajadores.Any(t => t.Curp == txtCurp.Text))
+                    {
+                        MessageBox.Show("La CURP ya está registrada", "Registro duplicado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        // Registra el trabajador
+                        Trabajadore trabajador = new Trabajadore();
+                        trabajador.NomTra = txtNombre.Text;
+                        trabajador.ApelTra = txtApellido.Text;
+                        trabajador.TelTra = txtTelefono.Text;
+                        trabajador.Rfc = txtRfc.Text;
+                        trabajador.Curp = txtCurp.Text;
 
-                trabajador.NomTra = txtNombre.Text;
-                trabajador.ApelTra = txtApellido.Text;
-                trabajador.TelTra = txtTelefono.Text;
-                trabajador.Rfc = txtRfc.Text;
-                trabajador.Curp = txtCurp.Text;
+                        dt.Trabajadores.Add(trabajador);
+                        dt.SaveChanges();
 
-                dt.Trabajadores.Add(trabajador);
-                dt.SaveChanges();
+                        MessageBox.Show("Trabajador registrado con éxito", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-
-                MessageBox.Show("Trabajador registrado con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                refrescar();
+                        // Limpia los campos de entrada de texto y refresca la tabla de trabajadores
+                        txtNombre.Text = "";
+                        txtApellido.Text = "";
+                        txtTelefono.Text = "";
+                        txtRfc.Text = "";
+                        txtCurp.Text = "";
+                        refrescar();
+                        ConfigurarDataGridView();
+                        
+                    }
+                }
             }
+
         }
 
         private void txtRfc_TextChanged(object sender, EventArgs e)
@@ -107,7 +140,7 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
         private void bntpersonal_Load(object sender, EventArgs e)
         {
-           
+            
 
 
             comboBox1.Items.Add("Limpieza");
@@ -128,6 +161,7 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
         {
             var query = dt.Trabajadores.ToList();
             dataGridView1.DataSource = query;
+
             ConfigurarDataGridView();
         }
 
@@ -136,6 +170,10 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
             eliminarTrabajador eliminar = new eliminarTrabajador();
 
             eliminar.ShowDialog();
+
+            txtNombre.Focus();
+
+
 
         }
 
@@ -146,11 +184,16 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = true; 
+            }
             if (e.KeyChar == 13)
             {
                 e.Handled = true;
                 txtApellido.Focus();
             }
+
         }
 
         private void txtApellido_KeyDown(object sender, KeyEventArgs e)
@@ -160,6 +203,10 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
         private void txtApellido_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = true; // Indica que se ha manejado el evento y que no debe propagarse más
+            }
             if (e.KeyChar == 13)
             {
                 e.Handled = true;
@@ -177,10 +224,7 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
 
 
-            refrescar();
-
-
-            cambio();
+            
 
         }
 
@@ -232,10 +276,9 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
         {
 
 
-           // OcultarProovedores();
+            // OcultarProovedores();
 
-
-            RefrescarPersonal();
+           
         }
 
         public void RefrescarPersonal()
@@ -251,6 +294,9 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
             dataGridView1.Columns[4].HeaderText = "Telefono";
             dataGridView1.Columns[5].HeaderText = "RFC";
             dataGridView1.Columns[6].HeaderText = "CURP";
+
+            ConfigurarDataGridView();
+
         }
 
         public void OcultarProovedores()
@@ -339,47 +385,79 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
         private void btnAgregarPersonal_Click(object sender, EventArgs e)
         {
+            txtNombrePersonal.Focus();
             if (string.IsNullOrEmpty(txtNombrePersonal.Text) || string.IsNullOrEmpty(txtApellidoPersonal.Text) || string.IsNullOrEmpty(txtTelefonoPersonal.Text) || string.IsNullOrEmpty(txtCurpPersonal.Text) || string.IsNullOrEmpty(txtRfcPersonal.Text))
             {
                 MessageBox.Show("Porfavor Rellene Los Campos Faltantes", "Campos Incompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-
-                string opcionSeleccionada = comboBox1.SelectedItem.ToString().ToLower();
-                int valor = 0;
-
-                switch (opcionSeleccionada)
+                using (var dt = new PruebaContext())
                 {
-                    case "limpieza":
-                        valor = 1;
-                        break;
-                    case "resaga":
-                        valor = 2;
-                        break;
-                    case "bomba":
-                        valor = 3;
-                        break;
-                    default:
-                        // Asignar valor por defecto o manejar el caso de error
-                        break;
+                    if (dt.Personals.Any(p => p.TelPer == txtTelefonoPersonal.Text))
+                    {
+                        MessageBox.Show("Numero de telefono ya registrado", "Campos incompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else if (dt.Personals.Any(t => t.Rfc == txtRfcPersonal.Text))
+                    {
+                        MessageBox.Show("El RFC que ingreson ya esta registrado,", "Campos incompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else if (dt.Personals.Any(h => h.Curp == txtCurpPersonal.Text))
+                    {
+                        MessageBox.Show("La curp que ha ingresado ya esta registrada", "Campos Incompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        string opcionSeleccionada = comboBox1.SelectedItem.ToString().ToLower();
+                        int valor = 0;
+
+                        switch (opcionSeleccionada)
+                        {
+                            case "limpieza":
+                                valor = 1;
+                                break;
+                            case "resaga":
+                                valor = 2;
+                                break;
+                            case "bomba":
+                                valor = 3;
+                                break;
+                            default:
+                                // Asignar valor por defecto o manejar el caso de error
+                                break;
+                        }
+
+                        // Utilizar la variable "valor" para insertar el valor en la base de datos
+
+                        Personal persona = new Personal();
+                        persona.IdAre = valor;
+                        persona.NomPer = txtNombrePersonal.Text;
+                        persona.ApePer = txtApellidoPersonal.Text;
+                        persona.TelPer = txtTelefonoPersonal.Text;
+                        persona.Rfc = txtRfcPersonal.Text;
+                        persona.Curp = txtCurpPersonal.Text;
+
+                        dt.Personals.Add(persona);
+                        dt.SaveChanges();
+
+                        MessageBox.Show("Empleado registrado con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                        txtNombrePersonal.Text = "";
+                        txtApellidoPersonal.Text = "";
+                        txtTelefonoPersonal.Text = "";
+                        txtRfcPersonal.Text = "";
+                        txtCurpPersonal.Text = "";
+
+                        RefrescarPersonal();
+                        ConfigurarDataGridView();
+
+                        
+                    }
+
+
                 }
 
-                // Utilizar la variable "valor" para insertar el valor en la base de datos
-
-                Personal persona = new Personal();
-                persona.IdAre = valor;
-                persona.NomPer = txtNombrePersonal.Text;
-                persona.ApePer = txtApellidoPersonal.Text;
-                persona.TelPer = txtTelefonoPersonal.Text;
-                persona.Rfc = txtRfcPersonal.Text;
-                persona.Curp = txtCurpPersonal.Text;
                 
-                dt.Personals.Add(persona);
-                dt.SaveChanges();
-
-                MessageBox.Show("Empleado registrado con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                RefrescarPersonal();
 
             }
         }
@@ -392,6 +470,11 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
         private void txtNombrePersonal_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = true; // Indica que se ha manejado el evento y que no debe propagarse más
+            }
+
             if (e.KeyChar == 13)
             {
                 e.Handled = true;
@@ -401,6 +484,11 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
         private void txtApellidoPersonal_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = true; // Indica que se ha manejado el evento y que no debe propagarse más
+            }
+
             if (e.KeyChar == 13)
             {
                 e.Handled = true;
@@ -447,6 +535,20 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
                 e.Handled = true;
                 comboBox1.Focus();
             }
+
+            if (e.KeyChar == 13) // Verifica si se presionó Enter
+            {
+                if (sender == txtCurpPersonal) // Verifica si el control activo es el TextBox1
+                {
+                    comboBox1.DroppedDown = true; // Abre la lista de opciones del ComboBox
+                    e.Handled = true; // Indica que se ha manejado el evento y que no debe propagarse más
+                }
+                else if (sender == comboBox1) // Verifica si el control activo es el ComboBox1
+                {
+                    btnAgregarPersonal.Focus(); // Enfoca el siguiente control
+                    e.Handled = true; // Indica que se ha manejado el evento y que no debe propagarse más
+                }
+            }
         }
 
         private void comboBox1_KeyPress(object sender, KeyPressEventArgs e)
@@ -473,6 +575,8 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
             personal.ShowDialog();
 
+            txtNombrePersonal.Focus();
+
             
         }
 
@@ -484,6 +588,42 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
         private void txtCurpPersonal_TextChanged(object sender, EventArgs e)
         {
             txtCurpPersonal.MaxLength = 18;
+        }
+
+        private void btnAgregar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+
+                e.Handled = true;
+                txtNombre.Focus();
+            }
+        }
+
+        private void txtApellidoPersonal_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSalir_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void rjButton1_Click(object sender, EventArgs e)
+        {
+            refrescar();
+
+
+            cambio();
+
+            txtNombre.Focus();
+        }
+
+        private void rjButton2_Click(object sender, EventArgs e)
+        {
+            txtNombrePersonal.Focus();
+            RefrescarPersonal();
         }
     }
 }

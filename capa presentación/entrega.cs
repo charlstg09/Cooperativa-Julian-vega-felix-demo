@@ -23,7 +23,7 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cmbTipoMarisco.DropDownStyle = ComboBoxStyle.DropDownList;
+            btnEnviar.Focus();
 
         }
 
@@ -58,6 +58,7 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
         private void btnEnviar_Click(object sender, EventArgs e)
         {
+            txtIdUsuario.Focus();
             if (cmbTipoMarisco.SelectedItem != null && !string.IsNullOrWhiteSpace(txtIdUsuario.Text) && !string.IsNullOrWhiteSpace(dateTimePicker1.Text) && !string.IsNullOrWhiteSpace(txtPesoTotal.Text))
             {
                 // Aquí puedes colocar el código para enviar los valores a la base de datos
@@ -140,6 +141,21 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
                 e.Handled = true;
                 txtIdUsuario.Focus();
             }
+            if (e.KeyChar == 13)
+            {
+                if (cmbTipoMarisco.DroppedDown) // Verifica si la lista de opciones está desplegada
+                {
+                    cmbTipoMarisco.SelectionLength = 0; // Evita que se seleccione el texto del ComboBox
+                    SendKeys.Send("{ENTER}"); // Selecciona el elemento actual
+                    SendKeys.Send("{TAB}"); // Enfoca el siguiente control
+                    e.Handled = true; // Indica que se ha manejado el evento y que no debe propagarse más
+                }
+                else // Si la lista no está desplegada, abre la lista de opciones
+                {
+                    cmbTipoMarisco.DroppedDown = true; // Abre la lista de opciones del ComboBox
+                    e.Handled = true; // Indica que se ha manejado el evento y que no debe propagarse más
+                }
+            }
         }
 
         private void txtIdUsuario_KeyPress(object sender, KeyPressEventArgs e)
@@ -155,8 +171,12 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
         {
             if (e.KeyChar == 13)
             {
-                e.Handled = true;
-                btnEnviar.Focus();
+                if (sender == txtPesoTotal)
+                {
+                    cmbTipoMarisco.DroppedDown = true;
+                    cmbTipoMarisco.Focus(); // Agrega esta línea
+                    e.Handled = true;
+                }
             }
         }
 
@@ -183,6 +203,7 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
         private void btnExportar_Click_1(object sender, EventArgs e)
         {
+            idCom.Focus();
 
             if (idCom != null && !string.IsNullOrWhiteSpace(cmbTipoMariscoExportar.Text) && !string.IsNullOrWhiteSpace(PesTotExp.Text))
             {
@@ -265,6 +286,12 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
             {
                 e.Handled = true;
             }
+
+            if (e.KeyChar == 13)
+            {
+                e.Handled = true;
+                PesTotExp.Focus();
+            }
         }
 
         private void IdMarExp_KeyPress(object sender, KeyPressEventArgs e)
@@ -285,6 +312,46 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
             {
                 e.Handled = true;
             }
+            if (e.KeyChar == (char)Keys.Enter) // Verifica si se presionó Enter
+            {
+                if (sender == PesTotExp) // Verifica si el control activo es el TextBox1
+                {
+                    cmbTipoMariscoExportar.DroppedDown = true; // Abre la lista de opciones del ComboBox
+                    e.Handled = true; // Indica que se ha manejado el evento y que no debe propagarse más
+                }
+                else if (sender == cmbTipoMariscoExportar) // Verifica si el control activo es el ComboBox1
+                {
+                    btnExportar.Focus(); // Enfoca el siguiente control
+                    e.Handled = true; // Indica que se ha manejado el evento y que no debe propagarse más
+                }
+            }
+        }
+
+        private void cmbTipoMariscoExportar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnExportar.Focus();
+        }
+
+        private void txtPesoTotal_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void cmbTipoMarisco_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (sender == cmbTipoMarisco)
+                {
+                    btnEnviar.Focus();
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void btnSalir_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 } 
