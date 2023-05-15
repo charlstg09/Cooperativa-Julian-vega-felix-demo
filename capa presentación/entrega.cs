@@ -23,7 +23,7 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            btnEnviar.Focus();
+            cmbTipoMarisco.DropDownStyle = ComboBoxStyle.DropDownList;
 
         }
 
@@ -61,8 +61,7 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
             txtIdUsuario.Focus();
             if (cmbTipoMarisco.SelectedItem != null && !string.IsNullOrWhiteSpace(txtIdUsuario.Text) && !string.IsNullOrWhiteSpace(dateTimePicker1.Text) && !string.IsNullOrWhiteSpace(txtPesoTotal.Text))
             {
-                // Aquí puedes colocar el código para enviar los valores a la base de datos
-                // utilizando los valores de los campos ComboBox, TextBox y DateTimePicker
+              
 
                 Entrega envio = new Entrega();
 
@@ -86,7 +85,7 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
                 }
 
                 int idTrabajador = int.Parse(txtIdUsuario.Text);
-                // Consultar el trabajador en la base de datos
+                
                 Trabajadore trabajador = dt.Trabajadores.Find(idTrabajador);
 
                 if (trabajador == null)
@@ -114,7 +113,11 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
                 principal.Show();
 
-                this.Hide();
+                txtIdUsuario.Text = "";
+                txtPesoTotal.Text = "";
+                cmbTipoMarisco.SelectedIndex = -1;
+
+               
             }
             else
             {
@@ -136,26 +139,7 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
         private void cmbTipoMarisco_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 13)
-            {
-                e.Handled = true;
-                txtIdUsuario.Focus();
-            }
-            if (e.KeyChar == 13)
-            {
-                if (cmbTipoMarisco.DroppedDown) // Verifica si la lista de opciones está desplegada
-                {
-                    cmbTipoMarisco.SelectionLength = 0; // Evita que se seleccione el texto del ComboBox
-                    SendKeys.Send("{ENTER}"); // Selecciona el elemento actual
-                    SendKeys.Send("{TAB}"); // Enfoca el siguiente control
-                    e.Handled = true; // Indica que se ha manejado el evento y que no debe propagarse más
-                }
-                else // Si la lista no está desplegada, abre la lista de opciones
-                {
-                    cmbTipoMarisco.DroppedDown = true; // Abre la lista de opciones del ComboBox
-                    e.Handled = true; // Indica que se ha manejado el evento y que no debe propagarse más
-                }
-            }
+            btnEnviar.Focus();
         }
 
         private void txtIdUsuario_KeyPress(object sender, KeyPressEventArgs e)
@@ -169,15 +153,8 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
         private void txtPesoTotal_KeyPress_1(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 13)
-            {
-                if (sender == txtPesoTotal)
-                {
-                    cmbTipoMarisco.DroppedDown = true;
-                    cmbTipoMarisco.Focus(); // Agrega esta línea
-                    e.Handled = true;
-                }
-            }
+
+          
         }
 
         private void btnExportar_Click(object sender, EventArgs e)
@@ -254,6 +231,10 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
                 dt.Exportars.Add(export);
                 dt.SaveChanges();
                 MessageBox.Show("exporte se realizo con exito.", "exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                idCom.Text = "";
+                PesTotExp.Text = "";
+                cmbTipoMariscoExportar.SelectedIndex = -1;
 
             }
             else
@@ -334,24 +315,51 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
         private void txtPesoTotal_KeyDown(object sender, KeyEventArgs e)
         {
-
+           
         }
 
         private void cmbTipoMarisco_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyData == Keys.Enter)
             {
-                if (sender == cmbTipoMarisco)
-                {
-                    btnEnviar.Focus();
-                    e.Handled = true;
-                }
+                cmbTipoMarisco.DroppedDown = true;
+                e.Handled = true;
             }
         }
 
         private void btnSalir_Click_1(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void lblId_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAyudaProveedor_Click(object sender, EventArgs e)
+        {
+            var query = dt.Trabajadores.ToList();
+
+            dataGridView1.DataSource = query;
+
+            // Configurar el DataGridView
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells; // Ajustar automáticamente el tamaño de las columnas
+            dataGridView1.ScrollBars = ScrollBars.Vertical; // Habilitar la barra de desplazamiento vertical
+        }
+
+        private void btnAyudaCompañia_Click(object sender, EventArgs e)
+        {
+            var query = dt.Compañia.ToList();
+            dataGridView1.DataSource = query;
+            // Configurar el DataGridView
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells; // Ajustar automáticamente el tamaño de las columnas
+            dataGridView1.ScrollBars = ScrollBars.Vertical; // Habilitar la barra de desplazamiento vertical
+        }
+
+        private void txtPesoTotal_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+           
         }
     }
 } 

@@ -37,6 +37,7 @@
             // 
             this.lblTrabajador.AutoSize = true;
             this.lblTrabajador.Font = new System.Drawing.Font("SimSun", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblTrabajador.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.lblTrabajador.Location = new System.Drawing.Point(256, 66);
             this.lblTrabajador.Name = "lblTrabajador";
             this.lblTrabajador.Size = new System.Drawing.Size(288, 18);
@@ -70,10 +71,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(800, 212);
             this.Controls.Add(this.btnEliminarPersonal);
             this.Controls.Add(this.txtIdPersonal);
             this.Controls.Add(this.lblTrabajador);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "eliminarPersonalId";
             this.Text = "eliminarPersonalId";
             this.Load += new System.EventHandler(this.eliminarPersonalId_Load);

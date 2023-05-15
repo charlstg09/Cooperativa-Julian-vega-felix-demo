@@ -115,19 +115,46 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
             }
             else
             {
-                Compañium compa = new Compañium();
+                using (var dt = new PruebaContext())
+                {
+                    if (dt.Compañia.Any(x => x.NumComp == txtTelefono.Text))
+                    {
+                        MessageBox.Show("El numero registrado ya existe porfavor ingrese otro", "Datos Repetidos",MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-                compa.NomCom = txtNombre.Text;
-                compa.EncComp = txtEncargado.Text;
-                compa.NumComp = txtTelefono.Text;
-                compa.EmaComp = txtEmail.Text;
+                    }
+                    else if (dt.Compañia.Any(x => x.EmaComp == txtEmail.Text))
+                    {
+                        MessageBox.Show("El email ingresado ya existe porfvafor ingrese otro", "Datos repetidos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-                dt.Compañia.Add(compa);
-                dt.SaveChanges();
+                    }
+                    else if (dt.Compañia.Any(x => x.NomCom == txtNombre.Text))
+                    {
+                        MessageBox.Show("El nombre ingresado ya existe porfvafor ingrese otro", "Datos repetidos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
 
-                MessageBox.Show("Trabajador registrado con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                refrescar();
+                    }
+                    else
+                    {
+                        Compañium compa = new Compañium();
+
+                        compa.NomCom = txtNombre.Text;
+                        compa.EncComp = txtEncargado.Text;
+                        compa.NumComp = txtTelefono.Text;
+                        compa.EmaComp = txtEmail.Text;
+
+                        dt.Compañia.Add(compa);
+                        dt.SaveChanges();
+
+
+                        MessageBox.Show("Trabajador registrado con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        refrescar();
+                        txtNombre.Text = "";
+                        txtEncargado.Text = "";
+                        txtTelefono.Text = "";
+                        txtEmail.Text = "";
+                    }
+                }
+                
             }
         }
 

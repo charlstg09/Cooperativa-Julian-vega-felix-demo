@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.lblOrdenar = new System.Windows.Forms.Label();
             this.btnPersonal = new System.Windows.Forms.Button();
@@ -53,25 +55,16 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 174);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(1250, 398);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // btnActualizar
             // 
             this.btnActualizar.Font = new System.Drawing.Font("Segoe Print", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnActualizar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnActualizar.Location = new System.Drawing.Point(741, 31);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(149, 29);
@@ -84,6 +77,7 @@
             // 
             this.lblOrdenar.AutoSize = true;
             this.lblOrdenar.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblOrdenar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblOrdenar.Location = new System.Drawing.Point(12, 31);
             this.lblOrdenar.Name = "lblOrdenar";
             this.lblOrdenar.Size = new System.Drawing.Size(129, 20);
@@ -92,6 +86,7 @@
             // 
             // btnPersonal
             // 
+            this.btnPersonal.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnPersonal.Location = new System.Drawing.Point(20, -1);
             this.btnPersonal.Name = "btnPersonal";
             this.btnPersonal.Size = new System.Drawing.Size(119, 29);
@@ -102,6 +97,7 @@
             // 
             // btnproovedores
             // 
+            this.btnproovedores.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnproovedores.Location = new System.Drawing.Point(20, 70);
             this.btnproovedores.Name = "btnproovedores";
             this.btnproovedores.Size = new System.Drawing.Size(121, 29);
@@ -113,6 +109,7 @@
             // btnsalir
             // 
             this.btnsalir.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnsalir.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnsalir.Location = new System.Drawing.Point(1137, 66);
             this.btnsalir.Name = "btnsalir";
             this.btnsalir.Size = new System.Drawing.Size(113, 30);
@@ -125,6 +122,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Location = new System.Drawing.Point(20, 102);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(129, 20);
@@ -135,6 +133,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label2.Location = new System.Drawing.Point(209, 33);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(111, 15);
@@ -159,6 +158,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label3.Location = new System.Drawing.Point(472, 36);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(143, 15);
@@ -177,6 +177,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label4.Location = new System.Drawing.Point(896, 43);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(87, 15);
@@ -202,6 +203,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label5.Location = new System.Drawing.Point(472, 109);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(135, 15);
@@ -225,6 +227,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label6.Location = new System.Drawing.Point(209, 106);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(111, 15);
@@ -242,6 +245,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label7.Location = new System.Drawing.Point(886, 113);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(87, 15);
@@ -251,6 +255,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Segoe Print", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button1.Location = new System.Drawing.Point(741, 102);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(149, 29);
@@ -262,6 +267,7 @@
             // btnhoyPersonal
             // 
             this.btnhoyPersonal.Font = new System.Drawing.Font("Segoe Print", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnhoyPersonal.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnhoyPersonal.Location = new System.Drawing.Point(147, 29);
             this.btnhoyPersonal.Name = "btnhoyPersonal";
             this.btnhoyPersonal.Size = new System.Drawing.Size(56, 29);
@@ -273,6 +279,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Segoe Print", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button2.Location = new System.Drawing.Point(147, 95);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(56, 29);
@@ -284,6 +291,7 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Segoe Print", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button3.Location = new System.Drawing.Point(1193, 31);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(57, 29);
@@ -295,6 +303,7 @@
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Segoe Print", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button4.Location = new System.Drawing.Point(1193, 102);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(57, 29);
@@ -303,11 +312,59 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 175);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1250, 397);
+            this.panel1.TabIndex = 53;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.DeepPink;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.EnableHeadersVisualStyles = false;
+            this.dataGridView1.GridColor = System.Drawing.Color.MediumSlateBlue;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.DarkOrchid;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dataGridView1.RowHeadersWidth = 51;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Indigo;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.dataGridView1.RowTemplate.Height = 29;
+            this.dataGridView1.Size = new System.Drawing.Size(1250, 397);
+            this.dataGridView1.TabIndex = 1;
+            // 
             // historial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(1250, 572);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -331,10 +388,11 @@
             this.Controls.Add(this.btnPersonal);
             this.Controls.Add(this.lblOrdenar);
             this.Controls.Add(this.btnActualizar);
-            this.Controls.Add(this.dataGridView1);
+            this.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Name = "historial";
             this.Text = "historial";
             this.Load += new System.EventHandler(this.historial_Load);
+            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -342,8 +400,6 @@
         }
 
         #endregion
-
-        private DataGridView dataGridView1;
         private Button btnActualizar;
         private Label lblOrdenar;
         private Button btnPersonal;
@@ -368,5 +424,7 @@
         private Button button2;
         private Button button3;
         private Button button4;
+        private Panel panel1;
+        private DataGridView dataGridView1;
     }
 }

@@ -14,8 +14,14 @@ namespace Cooperativa_Julian_vega_felix
 
 
 
+
+
+
+
            
         }
+
+
 
         private void Form1_Load(object sender, EventArgs e)
         {

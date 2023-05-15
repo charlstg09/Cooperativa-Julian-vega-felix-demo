@@ -13,7 +13,7 @@ namespace Cooperativa_Julian_vega_felix
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Principal());
+            Application.Run(new Form1());
         }
     }
 }

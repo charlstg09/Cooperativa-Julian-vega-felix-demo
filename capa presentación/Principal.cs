@@ -111,5 +111,10 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
         {
 
         }
+
+        private void panelPrincipal_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
