@@ -109,7 +109,7 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
         private void btnMarisco_Click(object sender, EventArgs e)
         {
-
+            OpenForm(new Mariscos());
         }
 
         private void panelPrincipal_Paint(object sender, PaintEventArgs e)

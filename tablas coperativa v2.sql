@@ -147,4 +147,8 @@ CURP varchar(18) NOT NULL,
 foreign key (idAre) references area(idAre)
 );
 
+alter table mariscos add subTipoMarisco varchar(50) not null
 
+alter table mariscos add PrecioMarisco varchar(50)
+
+alter table mariscos alter column PrecioMarisco decimal(10,2)
