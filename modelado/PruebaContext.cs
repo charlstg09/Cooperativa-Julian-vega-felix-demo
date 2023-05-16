@@ -159,6 +159,11 @@ public partial class PruebaContext : DbContext
             entity.ToTable("mariscos");
 
             entity.Property(e => e.IdMar).HasColumnName("idMar");
+            entity.Property(e => e.PrecioMarisco).HasColumnType("decimal(10, 2)");
+            entity.Property(e => e.SubTipoMarisco)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("subTipoMarisco");
             entity.Property(e => e.TipMariscos)
                 .HasMaxLength(50)
                 .IsUnicode(false)

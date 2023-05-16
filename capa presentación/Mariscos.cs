@@ -26,12 +26,17 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
         private void Mariscos_Load(object sender, EventArgs e)
         {
+            Actualizar();
+
+        }
+
+        private void Actualizar()
+        {
             var x = dt.Mariscos.ToList();
             dataGridView1.DataSource = x;
 
 
             cambio();
-
         }
         public void cambio()
         {
@@ -56,6 +61,7 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            txtNombre.Focus();
             if (string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrEmpty(txtSubtipo.Text) || string.IsNullOrEmpty(txtPrecio.Text))
             {
                 MessageBox.Show("Porfavor rellene todos los campos", "Campos Imcompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -65,11 +71,19 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
                 Marisco mari = new Marisco();
 
                 mari.TipMariscos = txtNombre.Text;
-               // mari.subTipo = txtSubtipo.Text;
-               // mari.precio = txtPrecio.Text;
+                mari.SubTipoMarisco = txtSubtipo.Text;
+                mari.PrecioMarisco = decimal.Parse(txtPrecio.Text);
 
                 dt.Mariscos.Add(mari);
                 dt.SaveChanges();
+
+
+                MessageBox.Show("Marisco agregado con exito", "Exito" , MessageBoxButtons.OK);
+                Actualizar();
+
+                txtNombre.Text = "";
+                txtSubtipo.Text = "";
+                txtPrecio.Text = "";
 
                 
 
@@ -154,14 +168,35 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
         private void BtnModificar_Click(object sender, EventArgs e)
         {
+            txtId.Focus();
             if (string.IsNullOrEmpty(txtId.Text) || string.IsNullOrEmpty(txtNuevoValor.Text))
             {
                 MessageBox.Show("Porfavor Complete los valores faltantes", "Valores incompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                MessageBox.Show("hola");
+                int Idmarisco = int.Parse(txtId.Text);
+
+               Marisco BuscarMarisco = dt.Mariscos.Find(Idmarisco);
+
+                if (BuscarMarisco == null)
+                {
+                    MessageBox.Show("No se encontró ningún marisco con el ID especificado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else
+                {
+                    BuscarMarisco.PrecioMarisco = decimal.Parse(txtNuevoValor.Text);
+                    dt.SaveChanges();
+                    MessageBox.Show($"Se ha realizado con exito la modificación del precio del marisco con Id: {Idmarisco}.", "Exito", MessageBoxButtons.OK);
+                    Actualizar();
+
+                    txtId.Text = "";
+                
+                    txtNuevoValor.Text = "";
+                }
             }
+            
         }
     }
 }
