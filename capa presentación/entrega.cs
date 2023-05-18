@@ -12,7 +12,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Cooperativa_Julian_vega_felix.capa_presentación
 {
-   
+
     public partial class entrega : Form
     {
         PruebaContext dt = new PruebaContext();
@@ -59,9 +59,9 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
         private void btnEnviar_Click(object sender, EventArgs e)
         {
             txtIdUsuario.Focus();
-            if (cmbTipoMarisco.SelectedItem != null && !string.IsNullOrWhiteSpace(txtIdUsuario.Text) && !string.IsNullOrWhiteSpace(dateTimePicker1.Text) && !string.IsNullOrWhiteSpace(txtPesoTotal.Text))
+            if (!string.IsNullOrWhiteSpace(txtIdMarisco.Text) && !string.IsNullOrWhiteSpace(txtIdUsuario.Text) && !string.IsNullOrWhiteSpace(dateTimePicker1.Text) && !string.IsNullOrWhiteSpace(txtPesoTotal.Text))
             {
-              
+
 
                 Entrega envio = new Entrega();
 
@@ -85,7 +85,7 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
                 }
 
                 int idTrabajador = int.Parse(txtIdUsuario.Text);
-                
+
                 Trabajadore trabajador = dt.Trabajadores.Find(idTrabajador);
 
                 if (trabajador == null)
@@ -94,7 +94,17 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
                     return;
                 }
 
-                envio.IdMar = idMarisco;
+                int IdMarisco = int.Parse(txtIdMarisco.Text);
+
+                Marisco mari = dt.Mariscos.Find(IdMarisco);
+
+                if (mari == null)
+                {
+                    MessageBox.Show("No se encontró ningún Marisco con el ID especificado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                envio.IdMar = int.Parse(txtIdMarisco.Text);
 
                 envio.IdTra = int.Parse(txtIdUsuario.Text);
                 envio.PesTot = decimal.Parse(txtPesoTotal.Text);
@@ -116,8 +126,9 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
                 txtIdUsuario.Text = "";
                 txtPesoTotal.Text = "";
                 cmbTipoMarisco.SelectedIndex = -1;
+                txtIdMarisco.Text = "";
 
-               
+
             }
             else
             {
@@ -125,14 +136,14 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
             }
 
 
-           
+
         }
 
         private void entrega_Load(object sender, EventArgs e)
         {
-           
 
-            
+
+
 
 
         }
@@ -153,8 +164,12 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
         private void txtPesoTotal_KeyPress_1(object sender, KeyPressEventArgs e)
         {
+            if (e.KeyChar == 13)
+            {
+                e.Handled = true;
+                txtIdMarisco.Focus();
+            }
 
-          
         }
 
         private void btnExportar_Click(object sender, EventArgs e)
@@ -182,7 +197,7 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
         {
             idCom.Focus();
 
-            if (idCom != null && !string.IsNullOrWhiteSpace(cmbTipoMariscoExportar.Text) && !string.IsNullOrWhiteSpace(PesTotExp.Text))
+            if (idCom != null && !string.IsNullOrWhiteSpace(txtIdMariscoExport.Text) && !string.IsNullOrWhiteSpace(PesTotExp.Text))
             {
                 Exportar export = new Exportar();
 
@@ -223,8 +238,18 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
                         break;
                 }
 
+                int IdMarisco = int.Parse(txtIdMariscoExport.Text);
+
+                Marisco mari = dt.Mariscos.Find(IdMarisco);
+
+                if (mari == null)
+                {
+                    MessageBox.Show("No se encontró ningún Marisco con el ID especificado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 export.IdCom = int.Parse(idCom.Text);
-                export.IdMar = idMariscoExportar;
+                export.IdMar = int.Parse(txtIdMariscoExport.Text);
                 export.FecExp = dateTimePicker2.Value;
                 export.PesTot = decimal.Parse(PesTotExp.Text);
 
@@ -234,6 +259,7 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
                 idCom.Text = "";
                 PesTotExp.Text = "";
+                txtIdMariscoExport.Text = "";
                 cmbTipoMariscoExportar.SelectedIndex = -1;
 
             }
@@ -244,7 +270,7 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
             }
 
 
-           
+
         }
 
         private void idCom_TextChanged(object sender, EventArgs e)
@@ -285,26 +311,14 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
         private void PesTotExp_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == '.' && PesTotExp.Text.IndexOf('.') > -1)
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
             {
                 e.Handled = true;
             }
-            else if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            if (e.KeyChar == 13)
             {
                 e.Handled = true;
-            }
-            if (e.KeyChar == (char)Keys.Enter) // Verifica si se presionó Enter
-            {
-                if (sender == PesTotExp) // Verifica si el control activo es el TextBox1
-                {
-                    cmbTipoMariscoExportar.DroppedDown = true; // Abre la lista de opciones del ComboBox
-                    e.Handled = true; // Indica que se ha manejado el evento y que no debe propagarse más
-                }
-                else if (sender == cmbTipoMariscoExportar) // Verifica si el control activo es el ComboBox1
-                {
-                    btnExportar.Focus(); // Enfoca el siguiente control
-                    e.Handled = true; // Indica que se ha manejado el evento y que no debe propagarse más
-                }
+                txtIdMariscoExport.Focus();
             }
         }
 
@@ -315,7 +329,7 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
         private void txtPesoTotal_KeyDown(object sender, KeyEventArgs e)
         {
-           
+
         }
 
         private void cmbTipoMarisco_KeyDown(object sender, KeyEventArgs e)
@@ -359,7 +373,66 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
         private void txtPesoTotal_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
-           
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rjButton2_Click(object sender, EventArgs e)
+        {
+
+
+            configurarMariscos();
+
+        }
+        private void configurarMariscos()
+        {
+            var mari = dt.Mariscos.ToList();
+
+            dataGridView1.DataSource = mari;
+            dataGridView1.Columns[0].HeaderText = "Id Marisco";
+            dataGridView1.Columns[1].HeaderText = "Nombre marisco";
+            dataGridView1.Columns[2].HeaderText = "Subtipo Marisco";
+            dataGridView1.Columns[3].HeaderText = "Precio";
+        }
+
+        private void btnMariscos_Click(object sender, EventArgs e)
+        {
+            configurarMariscos();
+        }
+
+        private void txtIdMarisco_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == 13)
+            {
+                e.Handled = true;
+                btnEnviar.Focus();
+            }
+        }
+
+        private void txtIdMariscoExport_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == 13)
+            {
+                e.Handled = true;
+                btnExportar.Focus();
+            }
         }
     }
-} 
+}

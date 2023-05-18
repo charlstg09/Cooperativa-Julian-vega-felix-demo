@@ -60,6 +60,10 @@
             this.btnAyudaCompañia = new CustomControls.RJControls.RJButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnMariscos = new CustomControls.RJControls.RJButton();
+            this.rjButton2 = new CustomControls.RJControls.RJButton();
+            this.txtIdMarisco = new System.Windows.Forms.TextBox();
+            this.txtIdMariscoExport = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -86,9 +90,9 @@
             this.lblMarisco.Location = new System.Drawing.Point(4, 275);
             this.lblMarisco.Name = "lblMarisco";
             this.lblMarisco.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblMarisco.Size = new System.Drawing.Size(118, 29);
+            this.lblMarisco.Size = new System.Drawing.Size(98, 29);
             this.lblMarisco.TabIndex = 3;
-            this.lblMarisco.Text = "Tipo Marisco";
+            this.lblMarisco.Text = "Id Marisco";
             this.lblMarisco.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblFecha
@@ -125,10 +129,11 @@
             "pescado",
             "jaiba",
             "camaron"});
-            this.cmbTipoMarisco.Location = new System.Drawing.Point(119, 278);
+            this.cmbTipoMarisco.Location = new System.Drawing.Point(119, 406);
             this.cmbTipoMarisco.Name = "cmbTipoMarisco";
             this.cmbTipoMarisco.Size = new System.Drawing.Size(151, 28);
             this.cmbTipoMarisco.TabIndex = 6;
+            this.cmbTipoMarisco.Visible = false;
             this.cmbTipoMarisco.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             this.cmbTipoMarisco.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbTipoMarisco_KeyDown);
             this.cmbTipoMarisco.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbTipoMarisco_KeyPress);
@@ -155,7 +160,7 @@
             // 
             // btnEnviar
             // 
-            this.btnEnviar.Location = new System.Drawing.Point(116, 334);
+            this.btnEnviar.Location = new System.Drawing.Point(109, 326);
             this.btnEnviar.Name = "btnEnviar";
             this.btnEnviar.Size = new System.Drawing.Size(161, 29);
             this.btnEnviar.TabIndex = 10;
@@ -291,10 +296,11 @@
             "pescado",
             "jaiba",
             "camaron"});
-            this.cmbTipoMariscoExportar.Location = new System.Drawing.Point(428, 265);
+            this.cmbTipoMariscoExportar.Location = new System.Drawing.Point(119, 440);
             this.cmbTipoMariscoExportar.Name = "cmbTipoMariscoExportar";
             this.cmbTipoMariscoExportar.Size = new System.Drawing.Size(151, 28);
             this.cmbTipoMariscoExportar.TabIndex = 24;
+            this.cmbTipoMariscoExportar.Visible = false;
             this.cmbTipoMariscoExportar.SelectedIndexChanged += new System.EventHandler(this.cmbTipoMariscoExportar_SelectedIndexChanged);
             // 
             // dateTimePicker2
@@ -420,12 +426,70 @@
             this.dataGridView1.Size = new System.Drawing.Size(617, 604);
             this.dataGridView1.TabIndex = 1;
             // 
+            // btnMariscos
+            // 
+            this.btnMariscos.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnMariscos.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnMariscos.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnMariscos.BorderRadius = 0;
+            this.btnMariscos.BorderSize = 0;
+            this.btnMariscos.FlatAppearance.BorderSize = 0;
+            this.btnMariscos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMariscos.ForeColor = System.Drawing.Color.White;
+            this.btnMariscos.Location = new System.Drawing.Point(585, 262);
+            this.btnMariscos.Name = "btnMariscos";
+            this.btnMariscos.Size = new System.Drawing.Size(42, 33);
+            this.btnMariscos.TabIndex = 41;
+            this.btnMariscos.Text = "?";
+            this.btnMariscos.TextColor = System.Drawing.Color.White;
+            this.btnMariscos.UseVisualStyleBackColor = false;
+            this.btnMariscos.Click += new System.EventHandler(this.btnMariscos_Click);
+            // 
+            // rjButton2
+            // 
+            this.rjButton2.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.rjButton2.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.rjButton2.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjButton2.BorderRadius = 0;
+            this.rjButton2.BorderSize = 0;
+            this.rjButton2.FlatAppearance.BorderSize = 0;
+            this.rjButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton2.ForeColor = System.Drawing.Color.White;
+            this.rjButton2.Location = new System.Drawing.Point(276, 278);
+            this.rjButton2.Name = "rjButton2";
+            this.rjButton2.Size = new System.Drawing.Size(42, 33);
+            this.rjButton2.TabIndex = 42;
+            this.rjButton2.Text = "?";
+            this.rjButton2.TextColor = System.Drawing.Color.White;
+            this.rjButton2.UseVisualStyleBackColor = false;
+            this.rjButton2.Click += new System.EventHandler(this.rjButton2_Click);
+            // 
+            // txtIdMarisco
+            // 
+            this.txtIdMarisco.Location = new System.Drawing.Point(119, 278);
+            this.txtIdMarisco.Name = "txtIdMarisco";
+            this.txtIdMarisco.Size = new System.Drawing.Size(151, 30);
+            this.txtIdMarisco.TabIndex = 43;
+            this.txtIdMarisco.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIdMarisco_KeyPress);
+            // 
+            // txtIdMariscoExport
+            // 
+            this.txtIdMariscoExport.Location = new System.Drawing.Point(428, 265);
+            this.txtIdMariscoExport.Name = "txtIdMariscoExport";
+            this.txtIdMariscoExport.Size = new System.Drawing.Size(151, 30);
+            this.txtIdMariscoExport.TabIndex = 44;
+            this.txtIdMariscoExport.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIdMariscoExport_KeyPress);
+            // 
             // entrega
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(1250, 604);
+            this.Controls.Add(this.txtIdMariscoExport);
+            this.Controls.Add(this.txtIdMarisco);
+            this.Controls.Add(this.rjButton2);
+            this.Controls.Add(this.btnMariscos);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnAyudaCompañia);
             this.Controls.Add(this.btnAyudaProveedor);
@@ -497,5 +561,9 @@
         private CustomControls.RJControls.RJButton btnAyudaCompañia;
         private Panel panel1;
         private DataGridView dataGridView1;
+        private CustomControls.RJControls.RJButton btnMariscos;
+        private CustomControls.RJControls.RJButton rjButton2;
+        private TextBox txtIdMarisco;
+        private TextBox txtIdMariscoExport;
     }
 }

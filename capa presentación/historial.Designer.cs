@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.lblOrdenar = new System.Windows.Forms.Label();
             this.btnPersonal = new System.Windows.Forms.Button();
@@ -38,7 +38,6 @@
             this.btnsalir = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.cmbTipoMarisco = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtIdProovedor = new System.Windows.Forms.TextBox();
             this.sqlDataAdapter1 = new Microsoft.Data.SqlClient.SqlDataAdapter();
@@ -46,7 +45,6 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.txtCompañia = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.cmbMariscoExportar = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
@@ -57,6 +55,12 @@
             this.button4 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.txtIdMarisco = new System.Windows.Forms.TextBox();
+            this.txtIdmariscoExp = new System.Windows.Forms.TextBox();
+            this.btnAyudaProveedor = new CustomControls.RJControls.RJButton();
+            this.BtnMariscoIDD = new CustomControls.RJControls.RJButton();
+            this.rjButton2 = new CustomControls.RJControls.RJButton();
+            this.btnAyudaExp = new CustomControls.RJControls.RJButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -136,23 +140,9 @@
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label2.Location = new System.Drawing.Point(209, 33);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(111, 15);
+            this.label2.Size = new System.Drawing.Size(135, 15);
             this.label2.TabIndex = 36;
-            this.label2.Text = "Por Mariscos:";
-            // 
-            // cmbTipoMarisco
-            // 
-            this.cmbTipoMarisco.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbTipoMarisco.FormattingEnabled = true;
-            this.cmbTipoMarisco.Items.AddRange(new object[] {
-            "pescado",
-            "jaiba",
-            "camaron"});
-            this.cmbTipoMarisco.Location = new System.Drawing.Point(315, 27);
-            this.cmbTipoMarisco.Name = "cmbTipoMarisco";
-            this.cmbTipoMarisco.Size = new System.Drawing.Size(151, 28);
-            this.cmbTipoMarisco.TabIndex = 37;
-            this.cmbTipoMarisco.SelectedIndexChanged += new System.EventHandler(this.cmbTipoMarisco_SelectedIndexChanged);
+            this.label2.Text = "Por Mariscos ID:";
             // 
             // label3
             // 
@@ -210,19 +200,6 @@
             this.label5.TabIndex = 44;
             this.label5.Text = "Por ID Compañia:";
             // 
-            // cmbMariscoExportar
-            // 
-            this.cmbMariscoExportar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbMariscoExportar.FormattingEnabled = true;
-            this.cmbMariscoExportar.Items.AddRange(new object[] {
-            "pescado",
-            "jaiba",
-            "camaron"});
-            this.cmbMariscoExportar.Location = new System.Drawing.Point(315, 100);
-            this.cmbMariscoExportar.Name = "cmbMariscoExportar";
-            this.cmbMariscoExportar.Size = new System.Drawing.Size(151, 28);
-            this.cmbMariscoExportar.TabIndex = 43;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -230,9 +207,9 @@
             this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label6.Location = new System.Drawing.Point(209, 106);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(111, 15);
+            this.label6.Size = new System.Drawing.Size(135, 15);
             this.label6.TabIndex = 42;
-            this.label6.Text = "Por Mariscos:";
+            this.label6.Text = "Por Mariscos ID:";
             // 
             // dateTimePicker2
             // 
@@ -316,9 +293,9 @@
             // 
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 175);
+            this.panel1.Location = new System.Drawing.Point(0, 153);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1250, 397);
+            this.panel1.Size = new System.Drawing.Size(1268, 466);
             this.panel1.TabIndex = 53;
             // 
             // dataGridView1
@@ -326,14 +303,14 @@
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.DeepPink;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DeepPink;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
@@ -341,29 +318,128 @@
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.DarkOrchid;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkOrchid;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.RowHeadersWidth = 51;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Indigo;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Indigo;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(1250, 397);
+            this.dataGridView1.Size = new System.Drawing.Size(1268, 466);
             this.dataGridView1.TabIndex = 1;
+            // 
+            // txtIdMarisco
+            // 
+            this.txtIdMarisco.Location = new System.Drawing.Point(341, 29);
+            this.txtIdMarisco.Name = "txtIdMarisco";
+            this.txtIdMarisco.Size = new System.Drawing.Size(125, 27);
+            this.txtIdMarisco.TabIndex = 54;
+            this.txtIdMarisco.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtIdMarisco_KeyDown);
+            this.txtIdMarisco.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIdMarisco_KeyPress);
+            // 
+            // txtIdmariscoExp
+            // 
+            this.txtIdmariscoExp.Location = new System.Drawing.Point(341, 100);
+            this.txtIdmariscoExp.Name = "txtIdmariscoExp";
+            this.txtIdmariscoExp.Size = new System.Drawing.Size(125, 27);
+            this.txtIdmariscoExp.TabIndex = 55;
+            this.txtIdmariscoExp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIdmariscoExp_KeyPress);
+            // 
+            // btnAyudaProveedor
+            // 
+            this.btnAyudaProveedor.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnAyudaProveedor.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnAyudaProveedor.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnAyudaProveedor.BorderRadius = 0;
+            this.btnAyudaProveedor.BorderSize = 0;
+            this.btnAyudaProveedor.FlatAppearance.BorderSize = 0;
+            this.btnAyudaProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAyudaProveedor.ForeColor = System.Drawing.Color.White;
+            this.btnAyudaProveedor.Location = new System.Drawing.Point(424, -3);
+            this.btnAyudaProveedor.Name = "btnAyudaProveedor";
+            this.btnAyudaProveedor.Size = new System.Drawing.Size(42, 33);
+            this.btnAyudaProveedor.TabIndex = 56;
+            this.btnAyudaProveedor.Text = "?";
+            this.btnAyudaProveedor.TextColor = System.Drawing.Color.White;
+            this.btnAyudaProveedor.UseVisualStyleBackColor = false;
+            this.btnAyudaProveedor.Click += new System.EventHandler(this.btnAyudaProveedor_Click);
+            // 
+            // BtnMariscoIDD
+            // 
+            this.BtnMariscoIDD.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.BtnMariscoIDD.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.BtnMariscoIDD.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.BtnMariscoIDD.BorderRadius = 0;
+            this.BtnMariscoIDD.BorderSize = 0;
+            this.BtnMariscoIDD.FlatAppearance.BorderSize = 0;
+            this.BtnMariscoIDD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnMariscoIDD.ForeColor = System.Drawing.Color.White;
+            this.BtnMariscoIDD.Location = new System.Drawing.Point(424, 68);
+            this.BtnMariscoIDD.Name = "BtnMariscoIDD";
+            this.BtnMariscoIDD.Size = new System.Drawing.Size(42, 33);
+            this.BtnMariscoIDD.TabIndex = 57;
+            this.BtnMariscoIDD.Text = "?";
+            this.BtnMariscoIDD.TextColor = System.Drawing.Color.White;
+            this.BtnMariscoIDD.UseVisualStyleBackColor = false;
+            this.BtnMariscoIDD.Click += new System.EventHandler(this.BtnMariscoIDD_Click);
+            // 
+            // rjButton2
+            // 
+            this.rjButton2.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.rjButton2.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.rjButton2.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjButton2.BorderRadius = 0;
+            this.rjButton2.BorderSize = 0;
+            this.rjButton2.FlatAppearance.BorderSize = 0;
+            this.rjButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton2.ForeColor = System.Drawing.Color.White;
+            this.rjButton2.Location = new System.Drawing.Point(693, -1);
+            this.rjButton2.Name = "rjButton2";
+            this.rjButton2.Size = new System.Drawing.Size(42, 33);
+            this.rjButton2.TabIndex = 58;
+            this.rjButton2.Text = "?";
+            this.rjButton2.TextColor = System.Drawing.Color.White;
+            this.rjButton2.UseVisualStyleBackColor = false;
+            this.rjButton2.Click += new System.EventHandler(this.rjButton2_Click);
+            // 
+            // btnAyudaExp
+            // 
+            this.btnAyudaExp.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnAyudaExp.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnAyudaExp.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnAyudaExp.BorderRadius = 0;
+            this.btnAyudaExp.BorderSize = 0;
+            this.btnAyudaExp.FlatAppearance.BorderSize = 0;
+            this.btnAyudaExp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAyudaExp.ForeColor = System.Drawing.Color.White;
+            this.btnAyudaExp.Location = new System.Drawing.Point(693, 70);
+            this.btnAyudaExp.Name = "btnAyudaExp";
+            this.btnAyudaExp.Size = new System.Drawing.Size(42, 33);
+            this.btnAyudaExp.TabIndex = 59;
+            this.btnAyudaExp.Text = "?";
+            this.btnAyudaExp.TextColor = System.Drawing.Color.White;
+            this.btnAyudaExp.UseVisualStyleBackColor = false;
+            this.btnAyudaExp.Click += new System.EventHandler(this.btnAyudaExp_Click);
             // 
             // historial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(30)))), ((int)(((byte)(45)))));
-            this.ClientSize = new System.Drawing.Size(1250, 572);
+            this.ClientSize = new System.Drawing.Size(1268, 619);
+            this.Controls.Add(this.btnAyudaExp);
+            this.Controls.Add(this.rjButton2);
+            this.Controls.Add(this.BtnMariscoIDD);
+            this.Controls.Add(this.btnAyudaProveedor);
+            this.Controls.Add(this.txtIdmariscoExp);
+            this.Controls.Add(this.txtIdMarisco);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -374,13 +450,11 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtCompañia);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.cmbMariscoExportar);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtIdProovedor);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.cmbTipoMarisco);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnsalir);
@@ -389,6 +463,7 @@
             this.Controls.Add(this.lblOrdenar);
             this.Controls.Add(this.btnActualizar);
             this.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "historial";
             this.Text = "historial";
             this.Load += new System.EventHandler(this.historial_Load);
@@ -407,7 +482,6 @@
         private Button btnsalir;
         private Label label1;
         private Label label2;
-        private ComboBox cmbTipoMarisco;
         private Label label3;
         private TextBox txtIdProovedor;
         private Microsoft.Data.SqlClient.SqlDataAdapter sqlDataAdapter1;
@@ -415,7 +489,6 @@
         private DateTimePicker dateTimePicker1;
         private TextBox txtCompañia;
         private Label label5;
-        private ComboBox cmbMariscoExportar;
         private Label label6;
         private DateTimePicker dateTimePicker2;
         private Label label7;
@@ -426,5 +499,11 @@
         private Button button4;
         private Panel panel1;
         private DataGridView dataGridView1;
+        private TextBox txtIdMarisco;
+        private TextBox txtIdmariscoExp;
+        private CustomControls.RJControls.RJButton btnAyudaProveedor;
+        private CustomControls.RJControls.RJButton BtnMariscoIDD;
+        private CustomControls.RJControls.RJButton rjButton2;
+        private CustomControls.RJControls.RJButton btnAyudaExp;
     }
 }

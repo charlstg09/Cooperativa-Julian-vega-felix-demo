@@ -78,22 +78,34 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
             dataGridView1.Columns[0].HeaderText = "ID Exporte";
             dataGridView1.Columns[1].HeaderText = "ID Compañia";
             dataGridView1.Columns[2].HeaderText = "ID Marisco";
-            dataGridView1.Columns[4].HeaderText = "Fecha";
+           
             dataGridView1.Columns[3].HeaderText = "Peso Total";
+            dataGridView1.Columns[4].HeaderText = "Fecha";
         }
 
         private void btnproovedores_Click(object sender, EventArgs e)
         {
             var query = dt.Exportars.ToList();
             dataGridView1.DataSource = query;
-            
 
+            dataGridView1.Columns[0].HeaderText = "ID Exporte";
+            dataGridView1.Columns[1].HeaderText = "ID Compañia";
+            dataGridView1.Columns[2].HeaderText = "ID Marisco";
             
+            dataGridView1.Columns[3].HeaderText = "Peso Total";
+            dataGridView1.Columns[4].HeaderText = "Fecha";
+
+
+
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+
+
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtIdProovedor.Text) && cmbTipoMarisco.SelectedIndex < 0)
+            if (string.IsNullOrEmpty(txtIdProovedor.Text) && string.IsNullOrEmpty(txtIdMarisco.Text))
             {
                 // Si no hay nada en el TextBox ni en el ComboBox, mostrar mensaje de error
                 MessageBox.Show("Ingrese un Id de compañía o seleccione un marisco.");
@@ -127,38 +139,28 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
                 // Limpiar el TextBox
                 txtIdProovedor.Text = string.Empty;
+                txtIdMarisco.Text = String.Empty;
             }
             else
             {
                 // Si no hay texto en el TextBox, obtener el valor seleccionado en el ComboBox
-                string mariscoSeleccionado = cmbTipoMarisco.SelectedItem?.ToString();
+                int mariscoSeleccionado = int.Parse(txtIdMarisco.Text);
 
-                if (string.IsNullOrEmpty(mariscoSeleccionado))
+                Marisco mari = dt.Mariscos.Find(mariscoSeleccionado);
+
+                if (mari == null)
                 {
                     // Si no se ha seleccionado un marisco, mostrar mensaje de error
                     MessageBox.Show("Seleccione un marisco o ingrese un Id de compañía");
                     return;
                 }
 
-                // Obtener el ID del marisco seleccionado en la base de datos
-                int idMarisco = 0;
-                switch (mariscoSeleccionado)
-                {
-                    case "pescado":
-                        idMarisco = 1;
-                        break;
-                    case "jaiba":
-                        idMarisco = 2;
-                        break;
-                    case "camaron":
-                        idMarisco = 3;
-                        break;
-                }
+               
 
                 // Consultar si hay exportaciones con el marisco seleccionado
                 using (var context = new PruebaContext())
                 {
-                    var entregas = context.Entregas.Where(e => e.IdMar == idMarisco).ToList();
+                    var entregas = context.Entregas.Where(e => e.IdMar == mariscoSeleccionado).ToList();
                     if (entregas.Count > 0)
                     {
                         // Si hay exportaciones con el marisco seleccionado, ordenar el DataGridView
@@ -170,8 +172,7 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
                     }
                 }
 
-                // Limpiar el ComboBox
-                cmbTipoMarisco.SelectedIndex = -1;
+               
             }
 
         }
@@ -194,11 +195,7 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
         private void btnsalir_Click(object sender, EventArgs e)
         {
-            Principal prin = new Principal();
-
-            prin.Show();
-
-            this.Hide();
+            this.Close();
         }
 
         private void btnhoyPersonal_Click(object sender, EventArgs e)
@@ -234,6 +231,8 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
             dataGridView1.Refresh();
 
             ConfigurarTablaExportar();
+
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void cmbTipoMarisco_SelectedIndexChanged(object sender, EventArgs e)
@@ -247,6 +246,12 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
             {
                 e.Handled = true;
             }
+            if (e.KeyChar == 13)
+            {
+                e.Handled=true;
+                btnActualizar.Focus();
+
+            }
         }
 
         private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
@@ -259,9 +264,9 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtCompañia.Text) && cmbMariscoExportar.SelectedIndex < 0)
+            if (string.IsNullOrEmpty(txtCompañia.Text) && string.IsNullOrEmpty(txtIdmariscoExp.Text))
             {
-                // Si no hay nada en el TextBox ni en el ComboBox, mostrar mensaje de error
+                
                 MessageBox.Show("Ingrese un Id de compañía o seleccione un marisco.");
                 return;
             }
@@ -297,34 +302,21 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
             else
             {
                 // Si no hay texto en el TextBox, obtener el valor seleccionado en el ComboBox
-                string mariscoSeleccionado = cmbMariscoExportar.SelectedItem?.ToString();
+                int mariscoSeleccionado = int.Parse(txtIdmariscoExp.Text);
 
-                if (string.IsNullOrEmpty(mariscoSeleccionado))
+                if (mariscoSeleccionado == 0)
                 {
                     // Si no se ha seleccionado un marisco, mostrar mensaje de error
                     MessageBox.Show("Seleccione un marisco o ingrese un Id de compañía");
                     return;
                 }
 
-                // Obtener el ID del marisco seleccionado en la base de datos
-                int idMarisco = 0;
-                switch (mariscoSeleccionado)
-                {
-                    case "pescado":
-                        idMarisco = 1;
-                        break;
-                    case "jaiba":
-                        idMarisco = 2;
-                        break;
-                    case "camaron":
-                        idMarisco = 3;
-                        break;
-                }
+               
 
                 // Consultar si hay exportaciones con el marisco seleccionado
                 using (var context = new PruebaContext())
                 {
-                    var exportaciones = context.Exportars.Where(e => e.IdMar == idMarisco).ToList();
+                    var exportaciones = context.Exportars.Where(e => e.IdMar == mariscoSeleccionado).ToList();
                     if (exportaciones.Count > 0)
                     {
                         // Si hay exportaciones con el marisco seleccionado, ordenar el DataGridView
@@ -337,7 +329,7 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
                 }
 
                 // Limpiar el ComboBox
-                cmbMariscoExportar.SelectedIndex = -1;
+                txtIdmariscoExp.Text = string.Empty;
             }
         }
 
@@ -381,6 +373,87 @@ namespace Cooperativa_Julian_vega_felix.capa_presentación
 
         }
 
-       
+        private void btnAyudaProveedor_Click(object sender, EventArgs e)
+        {
+            configurarMariscos();
+
+        }
+
+        private void configurarMariscos()
+        {
+            var mari = dt.Mariscos.ToList();
+
+            dataGridView1.DataSource = mari;
+            dataGridView1.Columns[0].HeaderText = "Id Marisco";
+            dataGridView1.Columns[1].HeaderText = "Nombre marisco";
+            dataGridView1.Columns[2].HeaderText = "Subtipo Marisco";
+            dataGridView1.Columns[3].HeaderText = "Precio";
+
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
+
+        private void BtnMariscoIDD_Click(object sender, EventArgs e)
+        {
+            configurarMariscos();
+        }
+
+        private void txtIdMarisco_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                e.Handled = true;
+                btnActualizar.Focus();
+            }
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void rjButton2_Click(object sender, EventArgs e)
+        {
+            var empleado = dt.Trabajadores.ToList();
+
+            dataGridView1.DataSource = empleado;
+
+            dataGridView1.Columns[0].HeaderText = "ID Proovedor";
+
+            dataGridView1.Columns[1].HeaderText = "Nombre Del Trabajador";
+            dataGridView1.Columns[2].HeaderText = "Apellido Del Trabajador";
+            dataGridView1.Columns[3].HeaderText = "Telefono";
+            dataGridView1.Columns[4].HeaderText = "Email";
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
+
+        private void btnAyudaExp_Click(object sender, EventArgs e)
+        {
+            var exp = dt.Compañia.ToList();
+            dataGridView1.DataSource = exp;
+
+
+            dataGridView1.Columns[1].HeaderText = "Nombre De la compañia";
+            dataGridView1.Columns[2].HeaderText = "Encargado de la compañia";
+            dataGridView1.Columns[3].HeaderText = "Telefono";
+            dataGridView1.Columns[4].HeaderText = "Email";
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
+
+        private void txtIdmariscoExp_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == 13)
+            {
+                e.Handled = true;
+                button1.Focus();
+            }
+        }
+
+        private void txtIdMarisco_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
     }
 }
